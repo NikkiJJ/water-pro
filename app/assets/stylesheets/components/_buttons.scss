@@ -1,5 +1,5 @@
 .button {
-  color: black;
+  color: $dark-blue;
   font-size: 16px;
   text-decoration: none;
   border-radius: 20px 20px 20px 20px;
@@ -14,5 +14,5 @@
 }
 
 .button:hover {
-  background-color: lightgrey;
+  background-color:$light-blue;
 }
