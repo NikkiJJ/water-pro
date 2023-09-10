@@ -10,9 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_10_153551) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_10_160403) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bathing_sites", force: :cascade do |t|
+    t.integer "pollution_level"
+    t.string "site_name"
+    t.string "tide"
+    t.string "region"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bathing_sites_on_user_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "bathing_site_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bathing_site_id"], name: "index_favourites_on_bathing_site_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "ratings"
+    t.date "date"
+    t.bigint "bathing_site_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bathing_site_id"], name: "index_reviews_on_bathing_site_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +59,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_153551) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bathing_sites", "users"
+  add_foreign_key "favourites", "bathing_sites"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "reviews", "bathing_sites"
+  add_foreign_key "reviews", "users"
 end
