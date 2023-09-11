@@ -9,9 +9,21 @@ class BathingSitesController < ApplicationController
   def show
   end
 
+  def new
+    @bathing_site = BathingSite.new
+  end
+
+  def create
+    @bathing_site = BathingSite.new(bathing_params)
+  end
   private
 
   def set_bathing_site
     @bathing_site = BathingSite.find(params[:id])
   end
+
+  def bathing_params
+    params.require(:bathing_site).permit(:pollution_level, :site_name, :tide, :region)
+  end
+
 end
