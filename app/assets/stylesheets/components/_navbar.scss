@@ -1,5 +1,7 @@
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
+  align-items: center; /* Vertically center align items */
   background: white;
 }
 
@@ -9,4 +11,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon .nav-item.dropdown i.fa-regular.fa-user {
+  font-size: 24px;
+  color: $dark-blue;
+  padding-right: 50px;
+  padding-top: 7px;
+  align-items: center;
 }

@@ -1,0 +1,26 @@
+.search-bar input[type="text"] {
+  color: $dark-blue;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 20px;
+  width: 200px;
+  height: 45px;
+  border: 2px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  .search-input {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"%3E%3Cpath d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.397l3.85 3.85a1 1 0 1 0 1.415-1.414l-3.85-3.85zM10.5 6.5a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-size: 20px; /* Adjust the size as needed */
+    background-position: 10px center; /* Adjust the position as needed */
+    padding-left: 40px; /* Ensure there's enough padding to accommodate the icon */
+  }
+}
