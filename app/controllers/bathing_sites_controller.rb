@@ -4,6 +4,13 @@ class BathingSitesController < ApplicationController
 
   def index
     @bathing_sites = policy_scope(BathingSite).all
+
+    @markers = @bathing_sites.geocoded.map do |bathing_site|
+      {
+        lat: bathing_site.latitude,
+        lng: bathing_site.longitude
+      }
+    end
   end
 
   def show
