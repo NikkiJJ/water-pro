@@ -5,7 +5,7 @@ class CreateBathingSites < ActiveRecord::Migration[7.0]
       t.string :site_name
       t.string :tide
       t.string :region
-      t.references :user, null: false, foreign_key: true
+      t.references :user, null: true, foreign_key: true
 
       t.timestamps
     end

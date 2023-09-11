@@ -1,1 +1,61 @@
-// Specific CSS for your home-page
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  color: $dark-blue;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+}
+.home-title {
+
+  background-size: cover;
+  background-position: center;
+  color: $dark-blue;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.home-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feature {
+  flex: 1;
+  text-align: center;
+  padding: 50px;
+}
+
+.feature h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}

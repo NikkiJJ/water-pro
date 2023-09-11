@@ -12,9 +12,10 @@ BathingSite.destroy_all
     pollution_level: [1, 2, 3].sample,
     site_name: ['sea palling', 'brighton', 'blackpool', 'walton', 'southend', 'brightlingsea', 'jaywick', 'clacton', 'margate', 'bromley'].sample,
     tide: [1, 2, 3].sample,
-    region: ['norfolk', 'london', 'essex', 'blackpool', 'kent', 'cornwall', 'devon'].sample,
+    region: ['norfolk', 'london', 'essex', 'blackpool', 'kent', 'cornwall', 'devon'].sample
   )
 
-  bathing_site.save
+  bathing_site.save!
+
     puts "#{bathing_site.site_name} is made"
 end
