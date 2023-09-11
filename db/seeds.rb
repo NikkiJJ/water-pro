@@ -13,6 +13,6 @@
     tide: [1, 2, 3].sample,
     region: ['norfolk', 'london', 'essex', 'blackpool', 'kent', 'cornwall', 'devon'].sample
   )
-  bathing_site.save
+  bathing_site.save!
     puts "#{bathing_site.site_name} is made"
 end
