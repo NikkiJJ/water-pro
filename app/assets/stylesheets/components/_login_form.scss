@@ -1,0 +1,22 @@
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-inputs {
+  width: 400px;
+  max-width: 400px;
+  margin: 10px 0;
+}
+
+.form-inputs input {
+  padding: 10px;
+}
+
+.form-actions .button {
+  margin-top: 40px;
+  margin-bottom: 50px;
+  margin-left: 30%;
+}
