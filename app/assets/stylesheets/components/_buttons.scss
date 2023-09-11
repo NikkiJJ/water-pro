@@ -12,8 +12,19 @@
   border: 2px  solid black;
   padding: 2px;
   margin: 5px;
+
+  &:hover {
+    background-color:$light-blue;
+  }
 }
 
-.button:hover {
-  background-color:$light-blue;
+.small-button {
+  width: 70px;
+  height: 30px;
+  font-size: 14px;
+
+  &:hover {
+    background-color:$light-blue;
+  }
+
 }
