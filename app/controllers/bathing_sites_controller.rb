@@ -1,21 +1,49 @@
 class BathingSitesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_bathing_site, only: :show
+  before_action :set_bathing_site, only: %i[show edit update destroy]
 
   def index
-    @bathing_sites = BathingSite.all
+    @bathing_sites = policy_scope(BathingSite).all
   end
 
   def show
+    authorize @bathing_site
   end
 
   def new
+    authorize @bathing_site
     @bathing_site = BathingSite.new
   end
 
   def create
     @bathing_site = BathingSite.new(bathing_params)
+    @bathing_site.user = current_user
+    authorize @bathing_site
+    if @bathing_site.save
+      redirect_to bathing_site_path(@bathing_site)
+    else
+      render :new
+    end
   end
+
+  def edit
+    authorize @bathing_site
+  end
+
+  def update4
+    authorize @bathing_site
+    @bathing_site.update(bathing_site_params)
+    redirect_to bathing_site_path(@bathing_site)
+  end
+
+  def destroy
+    authorize @bathing_site
+    @bathing_site.user = current_user
+    @bathing_site.destroy
+
+    redirect_to bathing_sites_path(@bathing_sites)
+  end
+
   private
 
   def set_bathing_site
@@ -25,5 +53,4 @@ class BathingSitesController < ApplicationController
   def bathing_params
     params.require(:bathing_site).permit(:pollution_level, :site_name, :tide, :region)
   end
-
 end
