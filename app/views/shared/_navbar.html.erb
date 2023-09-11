@@ -3,9 +3,12 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= "WATERPRO" %>
     <% end %>
-    <div class="search-bar">
-      <%= render 'shared/search_bar' %>
-    </div>
+  <div class="search-bar">
+    <% unless current_page?(root_path) %>
+        <%= render 'shared/search_bar' %>
+    <% end %>
+</div>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
