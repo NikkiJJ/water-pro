@@ -1,15 +1,25 @@
 <div class="body">
     <div class="text-center">
       <h1><%= @bathing_site.site_name.capitalize %></h1>
-        </div class="show-img">
-          <img src="https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.79093&lon=1.15624&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*" alt="map of bathing site">
+    </div>
+        <div class="card">
+            <div class="img-icon">
+                <div class="show-img">
+                  <img src="https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.79093&lon=1.15624&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*" alt="map of bathing site">
+                </div>
+                <div class="icons">
+                    <a href="#"><i class="fa-brands fa-gratipay fa-lg"></i></a>
+                    <a href="#"><i class="fa-regular fa-share-from-square fa-lg"></i></a>
+                    <a href="#"><i class="fa-regular fa-comment-dots fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="card-info">
+                <h3>    Pollution level: <%= @bathing_site.pollution_level %></h3>
+                <h3>    Tide level: <%= @bathing_site.tide %></h3>
+                <h3>    Region: <%= @bathing_site.region.capitalize %></h3>
+            </div>
         </div>
-        <div class="icons">
-            <a href="#"><i class="fa-brands fa-gratipay"></i></a>
-            <a href="#"><i class="fa-regular fa-share-from-square"></i></a>
-            <a href="#"><i class="fa-regular fa-comment-dots"></i></a>
-        </div>
-            <p>    Pollution level: <%= @bathing_site.pollution_level %></p>
-            <p>    Tide level: <%= @bathing_site.tide %></p>
-            <p>    Region: <%= @bathing_site.region %></p>
+    <div class="button-center">
+      <p><%= render 'shared/buttons/get_directions_button' %></p>
+    </div>
 </div>
