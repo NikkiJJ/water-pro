@@ -1,0 +1,23 @@
+.footer-content {
+  display: flex;
+  background-color: $footer-yellow;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.footer-item {
+  flex-basis: calc(33.33% - 20px);
+  margin-right: 10px;
+  text-align: center;
+}
+
+.footer-item:last-child {
+  margin-right: 0;
+}
+
+
+.footer-item i {
+  margin-right: 5px;
+}
