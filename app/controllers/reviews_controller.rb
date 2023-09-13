@@ -26,18 +26,20 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    authorize @review
     @review = Review.find(params[:id])
     @bathing_site = BathingSite.find(params[:bathing_site_id])
+    authorize @review
   end
 
   def edit
-    authorize @review
     @review = Review.find(params[:id])
     @bathing_site = BathingSite.find(params[:bathing_site_id])
+    authorize @review
   end
 
   def update
+    @review = Review.find(params[:id])
+    @bathing_site = BathingSite.find(params[:bathing_site_id])
     authorize @review
     @review.update(review_params)
     redirect_to bathing_site_reviews_path(@bathing_site)
