@@ -2,13 +2,14 @@
 
     <%= simple_form_for [@bathing_site, @review], method: :post, class: "form-horizontal" do |f| %>
         <%= f.label :title %>
+        <%= f.text_area :title, class: 'form-control' %>
+
+        <%= f.label :body %>
         <%= f.text_area :body, class: 'form-control' %>
 
-        <% f.label :ratings %>
+        <%= f.label :ratings %>
         <%= f.input :ratings, as: :integer, class: 'form-control' %>
 
-        <%= f.button :submit, class: 'btn submit-btn' %>
+        <%= f.submit :submit, class: 'btn submit-btn' %>
 
     <% end %>
-
-
