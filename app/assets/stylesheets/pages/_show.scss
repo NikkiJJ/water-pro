@@ -1,9 +1,42 @@
 .icons {
-  padding: 200px;
   display: flex;
-  align-items: center;
+  justify-content: end;
+  padding-top: 20px;
+  padding-left: 50px;
+    a {
+      padding: 10px;
+      text-decoration: none;
+    }
 }
 
 .show-img {
-  margin-left: 50px;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 1600px;
+  height: 600px;
+  margin-left: 150px;
+  border-style: inset;
+}
+
+.img-icon {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info {
+  padding-top: 50px;
+  padding-left: 100px;
+    h3 {
+      padding: 20px;
+    }
+}
+
+.button-center {
+  display: flex;
+  align-items: center;
 }
