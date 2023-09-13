@@ -14,13 +14,18 @@
                 </div>
             </div>
             <div class="card-info">
-                <h3>    Pollution level: <%= @bathing_site.pollution_level %></h3>
+              <% if @bathing_site.pollution_level >= 1 %>
+                      <h3><i class="fa-solid fa-triangle-exclamation"></i>       Pollution level: <%= @bathing_site.pollution_level %></h3>
+                <% else %>
+                      <h3><i class="fa-regular fa-circle-check"></i>       Pollution level: <%= @bathing_site.pollution_level %></h3>
+              <% end %>
+
                 <h3>    Tidal level: <%= @bathing_site.tide %></h3>
                 <h3>    Region: <%= @bathing_site.region.capitalize %></h3>
             </div>
         </div>
     <div class="button-center">
       <p><%= render 'shared/buttons/get_directions_button' %></p>
+      <p><%= render 'shared/buttons/reviews_button' %></p>
     </div>
 </div>
-
