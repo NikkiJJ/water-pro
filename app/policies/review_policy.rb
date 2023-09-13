@@ -1,7 +1,7 @@
 class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
 
@@ -14,7 +14,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present?
+    true
   end
 
   def edit?

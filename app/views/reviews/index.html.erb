@@ -1,1 +1,19 @@
-<h1>reviews index?</h1>
+<h1>Reviews</h1>
+
+<% if @reviews.any? %>
+    <% @reviews.each do |review| %>
+          <%= link_to bathing_site_review_path(review.bathing_site.id, review.id) do %>
+          <%= review.title %>
+          <% end %>
+          <%= review.created_at.strftime("%Y-%m-%d") %>
+          <%= review.body %></p>
+          <% review.ratings.times do %>
+            <i class="fa-solid fa-star"></i>
+          <% end %>
+    <% end %>
+<% else %>
+  <p>No reviews available.</p>
+<% end %>
+
+
+<%= render 'shared/buttons/create_new_button' %>
