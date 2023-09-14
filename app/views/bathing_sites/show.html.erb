@@ -8,15 +8,16 @@
                   <img src="https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.79093&lon=1.15624&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*" alt="map of bathing site">
                 </div>
                 <div class="icons">
-                    <a href="#"><i class="fa-brands fa-gratipay fa-lg"></i></a>
-                    <a href="#"><i class="fa-regular fa-share-from-square fa-lg"></i></a>
-                    <a href="#"><i class="fa-regular fa-comment-dots fa-lg"></i></a>
+                  <%# favourite button %>
+                  <%= render "shared/buttons/favourite_button" %>
+                  <a href="#"><i class="fa-regular fa-share-from-square fa-lg"></i></a>
+                  <a href="#"><i class="fa-regular fa-comment-dots fa-lg"></i></a>
                 </div>
             </div>
             <div class="card-info">
               <% if @bathing_site.pollution_level >= 1 %>
                       <h3><i class="fa-solid fa-triangle-exclamation"></i>       Pollution level: <%= @bathing_site.pollution_level %></h3>
-                <% else %>
+              <% else %>
                       <h3><i class="fa-regular fa-circle-check"></i>       Pollution level: <%= @bathing_site.pollution_level %></h3>
               <% end %>
 
@@ -28,4 +29,6 @@
       <p><%= render 'shared/buttons/get_directions_button' %></p>
       <p><%= render 'shared/buttons/reviews_button' %></p>
     </div>
+
+
 </div>
