@@ -16,13 +16,24 @@
             </div>
             <div class="card-info">
               <% if @bathing_site.pollution_level >= 1 %>
-                      <h3><i class="fa-solid fa-triangle-exclamation"></i>       Pollution level: <%= @bathing_site.pollution_level %></h3>
+                  <div class="info-item">
+                      <h3>Pollution level: <%= @bathing_site.pollution_level %></h3>
+                      <i class="fa-solid fa-triangle-exclamation fa-2xl"></i>
+                  </div>
               <% else %>
-                      <h3><i class="fa-regular fa-circle-check"></i>       Pollution level: <%= @bathing_site.pollution_level %></h3>
+                  <div class="info-item">
+                      <h3 id="txt">Pollution level: <%= @bathing_site.pollution_level %></h3>
+                      <i class="fa-regular fa-circle-check fa-2xl"></i>
+                  </div>
               <% end %>
-
-                <h3>    Tidal level: <%= @bathing_site.tide %></h3>
-                <h3>    Region: <%= @bathing_site.region.capitalize %></h3>
+                  <div class="info-item">
+                      <h3 id="txt">Tidal level: <%= @bathing_site.tide %></h3>
+                      <i class="fa-solid fa-water fa-2xl"></i>
+                  </div>
+                  <div class="info-item">
+                      <h3 id="txt">Region: <%= @bathing_site.region.capitalize %></h3>
+                      <i class="fa-solid fa-earth-europe fa-2xl"></i>
+                </div>
             </div>
         </div>
     <div class="button-center">
