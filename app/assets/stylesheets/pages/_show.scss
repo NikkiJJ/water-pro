@@ -20,7 +20,11 @@
   width: 1600px;
   height: 600px;
   margin-left: 150px;
-  border-style: inset;
+  border-style: solid;
+  border-color: $yellow;
+  border-radius: 20px;
+  background-color: $light-blue;
+  color: $gray;
 }
 
 .img-icon {
@@ -33,10 +37,53 @@
   padding-left: 100px;
     h3 {
       padding: 20px;
+      color: $gray;
     }
 }
 
 .button-center {
   display: flex;
   align-items: center;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+   h3 {
+    color: $gray;
+   }
+}
+
+.body {
+  background-color: $dark-blue;
+    h1 {
+      padding: 60px;
+      color: $light-gray;
+    }
+}
+
+#txt {
+  color: $gray;
+}
+
+.fa-share-from-square {
+  color: $yellow;
+}
+
+.fa-comment-dots {
+  color: $yellow;
+}
+
+.fa-heart {
+  color: $yellow;
+}
+
+.fa-triangle-exclamation {
+  color: red;
+}
+
+.fa-circle-check {
+  color: green;
 }
