@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :bathing_sites do
     resources :reviews
     resources :favourites, only: [:create]
+    resources :report, only: [ :edit, :create ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,4 +15,5 @@ Rails.application.routes.draw do
   resources :pages
 
   resources :users
+
 end
