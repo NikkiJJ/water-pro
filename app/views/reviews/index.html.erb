@@ -1,19 +1,35 @@
-<h1>Reviews</h1>
+<div class="body">
+    <div class="review-banner">
+          <div class="banner-txt">
+              <h1>Have your say...</h1>
+              <h3>Together, we can create a crowd-sourced platform that encourages collective awareness
+                  and prompt action.</h3>
+          </div>
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" width="500px" height="400px"alt="review picture">
+    </div>
 
-<% if @reviews.any? %>
-    <% @reviews.each do |review| %>
-          <%= link_to bathing_site_review_path(review.bathing_site.id, review.id) do %>
-          <%= review.title %>
-          <% end %>
-          <%= review.created_at.strftime("%Y-%m-%d") %>
-          <%= review.body %></p>
-          <% review.ratings.times do %>
-            <i class="fa-solid fa-star"></i>
-          <% end %>
-    <% end %>
-<% else %>
-  <p>No reviews available.</p>
-<% end %>
+    <div class="review-card">
+        <% if @reviews.any? %>
+            <% @reviews.each do |review| %>
+                  <%= link_to bathing_site_review_path(review.bathing_site.id, review.id) do %>
+                    <div class="title-date">
+                        <h3>Title: <%= review.title %></h3>
+                        <% end %>
+                        <h3>Created at:<%= review.created_at.strftime("%Y-%m-%d") %></h3>
+                    </div>
+                        <h4><%= review.body %></h4>
+                    <div class="star-rating">
+                        <h3>Star rating: <% review.ratings.times do %></h3>
+                        <i class="fa-solid fa-star"></i>
+                      <% end %>
+                    </div>
+    </div>
+            <% end %>
+        <% else %>
+          <p>No reviews available.</p>
+        <% end %>
 
 
-<%= render 'shared/buttons/create_new_button' %>
+    <%= render 'shared/buttons/create_new_button' %>
+
+</div>
