@@ -24,6 +24,7 @@
   border-color: $yellow;
   border-radius: 20px;
   background-color: $light-blue;
+  box-shadow: 10px 10px 5px rgb(45, 45, 45);
   color: $gray;
 }
 
@@ -33,6 +34,7 @@
 }
 
 .card-info {
+  margin-bottom: 60px;
   padding-top: 50px;
   padding-left: 100px;
     h3 {
@@ -44,6 +46,7 @@
 .button-center {
   display: flex;
   align-items: center;
+  margin-top: 50px;
 }
 
 .info-item {
@@ -58,6 +61,7 @@
 
 .body {
   background-color: $dark-blue;
+  height: 800px;
     h1 {
       padding: 60px;
       color: $light-gray;
