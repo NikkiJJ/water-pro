@@ -24,7 +24,8 @@
   border-color: $yellow;
   border-radius: 20px;
   background-color: $light-blue;
-  color: $gray;
+  box-shadow: 10px 10px 5px rgb(45, 45, 45);
+  color: $light-gray;
 }
 
 .img-icon {
@@ -33,17 +34,19 @@
 }
 
 .card-info {
+  margin-bottom: 60px;
   padding-top: 50px;
   padding-left: 100px;
     h3 {
       padding: 20px;
-      color: $gray;
+      color: $light-gray;
     }
 }
 
 .button-center {
   display: flex;
   align-items: center;
+  margin-top: 50px;
 }
 
 .info-item {
@@ -52,12 +55,13 @@
   justify-content: space-between;
   width: 800px;
    h3 {
-    color: $gray;
+    color: $light-gray;
    }
 }
 
 .body {
   background-color: $dark-blue;
+  height: 800px;
     h1 {
       padding: 60px;
       color: $light-gray;
@@ -65,7 +69,7 @@
 }
 
 #txt {
-  color: $gray;
+  color: $light-gray;
 }
 
 .fa-share-from-square {
