@@ -4,16 +4,17 @@ Rails.application.routes.draw do
   resources :bathing_sites do
     resources :reviews
     resources :favourites, only: [:create]
-    resources :report, only: [ :edit, :create ]
+    get '/reports/new', to: 'reports#new', as: 'new_report'
+    post '/reports', to: 'reports#create', as: 'reports'
+    get '/report_confirmation_page', to: 'reports#confirmation_page'
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :favourites, only: [:destroy]
-  # Defines the root path route ("/")
-  # root "articles#index"
 
   resources :pages
 
   resources :users
+
+  resources :reports, only: [:show]
 
 end

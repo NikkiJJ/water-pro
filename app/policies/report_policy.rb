@@ -17,4 +17,8 @@ class ReportPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def confirmation_page?
+    true
+  end
 end

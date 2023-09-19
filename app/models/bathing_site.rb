@@ -1,8 +1,7 @@
 class BathingSite < ApplicationRecord
   belongs_to :user, optional: true
 
-  has_many :reports, optional: true
-  has_many :users, through: :favourites
+  # has_many :users, through: :favourites
   has_many :reviews
   has_many :favourites
 
