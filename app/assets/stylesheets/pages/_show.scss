@@ -1,9 +1,93 @@
 .icons {
-  padding: 200px;
   display: flex;
-  align-items: center;
+  justify-content: end;
+  padding-top: 20px;
+  padding-left: 50px;
+    a {
+      padding: 10px;
+      text-decoration: none;
+    }
 }
 
 .show-img {
-  margin-left: 50px;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 1600px;
+  height: 600px;
+  margin-left: 150px;
+  border-style: solid;
+  border-color: $yellow;
+  border-radius: 20px;
+  background-color: $light-blue;
+  box-shadow: 10px 10px 5px rgb(45, 45, 45);
+  color: $light-gray;
+}
+
+.img-icon {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info {
+  margin-bottom: 60px;
+  padding-top: 50px;
+  padding-left: 100px;
+    h3 {
+      padding: 20px;
+      color: $light-gray;
+    }
+}
+
+.button-center {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 800px;
+   h3 {
+    color: $light-gray;
+   }
+}
+
+.body {
+  background-color: $dark-blue;
+  height: 800px;
+    h1 {
+      padding: 60px;
+      color: $light-gray;
+    }
+}
+
+#txt {
+  color: $light-gray;
+}
+
+.fa-share-from-square {
+  color: $yellow;
+}
+
+.fa-comment-dots {
+  color: $yellow;
+}
+
+.fa-heart {
+  color: $yellow;
+}
+
+.fa-triangle-exclamation {
+  color: red;
+}
+
+.fa-circle-check {
+  color: green;
 }

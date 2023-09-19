@@ -8,9 +8,10 @@
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
-# It's strongly recommended that you check this file into your version control system.
+# It's strongly recommended that you check this file into your version control syst
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_13_201450) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_201450) do
     t.string "site_name"
     t.string "tide"
     t.string "region"
-    t.bigint "user_id", null: false
+    t.bigint "user_id", null: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
@@ -34,6 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_201450) do
     t.datetime "updated_at", null: false
     t.index ["bathing_site_id"], name: "index_favourites_on_bathing_site_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
   create_table "reviews", force: :cascade do |t|
