@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_145539) do
   enable_extension "plpgsql"
 
   create_table "bathing_sites", force: :cascade do |t|
-    t.integer "pollution_level"
+    t.string "water_quality"
     t.string "site_name"
     t.string "tide"
     t.string "region"
