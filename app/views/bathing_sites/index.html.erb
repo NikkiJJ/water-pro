@@ -3,7 +3,6 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
 <% @bathing_sites.each do |bathing_site| %>
   <%= link_to bathing_site_path(bathing_site) do %>
     <%= bathing_site.site_name %>
@@ -11,10 +10,31 @@
     <%= bathing_site.water_quality %>
     <br>
 <% end %>
+<div class="card-container">
+  <% @bathing_sites.each do |bathing_site| %>
+    <div class="card">
+      <%= link_to bathing_site_path(bathing_site) do %>
+        <div class="card-header">
+          <%= bathing_site.site_name.capitalize %>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Water Quality: <%= bathing_site.water_quality %></p>
+          <p class="card-text">Tide: <%= bathing_site.tide %></p>
+          <p class="card-text">Location: <%= bathing_site.site_name %></p>
+        <div class="container-btn-options">
+          <%= render 'shared/buttons/back_button' %>
+          <%= render 'shared/buttons/tide_button' %>
+          <%= render 'shared/buttons/weather_button' %>
+          <%= render 'shared/buttons/get_directions_button' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 <div class = "container">
-<%= render 'shared/buttons/back_button' %>
-<%= render 'shared/buttons/tide_button' %>
-<%= render 'shared/buttons/weather_button' %>
-<%= render 'shared/buttons/reviews_button' %>
-<%= render 'shared/buttons/get_directions_button' %>
+  <%= render 'shared/buttons/back_button' %>
+  <%= render 'shared/buttons/tide_button' %>
+  <%= render 'shared/buttons/weather_button' %>
+  <%= render 'shared/buttons/reviews_button' %>
+  <%= render 'shared/buttons/get_directions_button' %>
 </div>
