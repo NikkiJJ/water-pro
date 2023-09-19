@@ -22,7 +22,7 @@
                   </div>
               <% else %>
                   <div class="info-item">
-                      <h3 id="txt">Pollution level: <%= @bathing_site.pollution_level %></h3>
+                      <h3 id="txt">Water quality: <%= @bathing_site.water_quality %></h3>
                       <i class="fa-regular fa-circle-check fa-2xl"></i>
                   </div>
               <% end %>
@@ -31,7 +31,7 @@
                       <i class="fa-solid fa-water fa-2xl"></i>
                   </div>
                   <div class="info-item">
-                      <h3 id="txt">Region: <%= @bathing_site.region.capitalize %></h3>
+                      <h3 id="txt">Location: <%= @bathing_site.site_name %>></h3>
                       <i class="fa-solid fa-earth-europe fa-2xl"></i>
                 </div>
                     <div class="button-center">
@@ -40,7 +40,8 @@
                     </div>
             </div>
         </div>
-
-
-
-</div>
+        <div class="icons">
+            <a href="#"><i class="fa-brands fa-gratipay"></i></a>
+            <a href="#"><i class="fa-regular fa-share-from-square"></i></a>
+            <a href="#"><i class="fa-regular fa-comment-dots"></i></a>
+        </div>

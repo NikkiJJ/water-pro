@@ -15,9 +15,9 @@
           <%= bathing_site.site_name.capitalize %>
         </div>
         <div class="card-body">
-          <p class="card-text">Pollution Level: <%= bathing_site.pollution_level %></p>
+          <p class="card-text">Water Quality: <%= bathing_site.water_quality %></p>
           <p class="card-text">Tide: <%= bathing_site.tide %></p>
-          <p class="card-text">Region: <%= bathing_site.region.capitalize %></p>
+          <p class="card-text">Location: <%= bathing_site.site_name %></p>
         <div class="container-btn-options">
   <%= render 'shared/buttons/back_button' %>
   <%= render 'shared/buttons/tide_button' %>
@@ -27,5 +27,13 @@
         </div>
       <% end %>
     </div>
-  <% end %>
+  <% end %>    
+    <br>
+<% end %>
+<div class = "container">
+<%= render 'shared/buttons/back_button' %>
+<%= render 'shared/buttons/tide_button' %>
+<%= render 'shared/buttons/weather_button' %>
+<%= render 'shared/buttons/reviews_button' %>
+<%= render 'shared/buttons/get_directions_button' %>
 </div>

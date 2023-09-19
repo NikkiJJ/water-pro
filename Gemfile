@@ -55,6 +55,7 @@ gem 'faker'
 gem 'pg_search'
 
 
+gem 'httparty'
 gem "geocoder"
 gem "pundit"
 gem "bootstrap", "~> 5.2"
