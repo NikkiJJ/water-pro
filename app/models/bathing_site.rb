@@ -8,9 +8,9 @@ class BathingSite < ApplicationRecord
   geocoded_by :region
   after_validation :geocode, if: :will_save_change_to_region?
 
-    include PgSearch::Model
+  include PgSearch::Model
 
-    pg_search_scope :search_by_site_name, against: :site_name, using: {
-      tsearch: { prefix: true }
-    }
+  pg_search_scope :search_by_site_name, against: :site_name, using: {
+    tsearch: { prefix: true }
+  }
 end
