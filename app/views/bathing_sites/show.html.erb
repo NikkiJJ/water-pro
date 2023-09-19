@@ -1,8 +1,44 @@
-<div class="body">
+<div class="body beach-show-page">
     <div class="text-center">
       <h1><%= @bathing_site.site_name.capitalize %></h1>
-        </div class="show-img">
-          <img src="https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.79093&lon=1.15624&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*" alt="map of bathing site">
+    </div>
+        <div class="card">
+            <div class="img-icon">
+                <div class="show-img">
+                  <img src="https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.79093&lon=1.15624&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*" alt="map of bathing site">
+                </div>
+                <div class="icons">
+                  <%# favourite button %>
+                  <%= render "shared/buttons/favourite_button" %>
+                  <a href="#"><i class="fa-regular fa-share-from-square fa-lg"></i></a>
+                  <a href="#"><i class="fa-regular fa-comment-dots fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="card-info">
+              <% if @bathing_site.pollution_level >= 1 %>
+                  <div class="info-item">
+                      <h3>Pollution level: <%= @bathing_site.pollution_level %></h3>
+                      <i class="fa-solid fa-triangle-exclamation fa-2xl"></i>
+                  </div>
+              <% else %>
+                  <div class="info-item">
+                      <h3 id="txt">Water quality: <%= @bathing_site.water_quality %></h3>
+                      <i class="fa-regular fa-circle-check fa-2xl"></i>
+                  </div>
+              <% end %>
+                  <div class="info-item">
+                      <h3 id="txt">Tidal level: <%= @bathing_site.tide %></h3>
+                      <i class="fa-solid fa-water fa-2xl"></i>
+                  </div>
+                  <div class="info-item">
+                      <h3 id="txt">Location: <%= @bathing_site.site_name %>></h3>
+                      <i class="fa-solid fa-earth-europe fa-2xl"></i>
+                </div>
+                    <div class="button-center">
+                      <p><%= render 'shared/buttons/get_directions_button' %></p>
+                      <p><%= render 'shared/buttons/reviews_button' %></p>
+                    </div>
+            </div>
         </div>
         <div class="card">
             <div class="img-icon">
@@ -48,7 +84,3 @@
             <a href="#"><i class="fa-regular fa-share-from-square"></i></a>
             <a href="#"><i class="fa-regular fa-comment-dots"></i></a>
         </div>
-            <p>Location: <%= @bathing_site.site_name %></p>
-            <p>Water quality: <%= @bathing_site.water_quality %></p>
-            <p>Region: <%= @bathing_site.region %></p>
-</div>

@@ -5,6 +5,12 @@ class BathingSitesController < ApplicationController
   def index
     @bathing_sites = policy_scope(BathingSite).all
 
+    if params[:query].present?
+      @bathing_sites = BathingSite.search_by_site_name(params[:query])
+    else
+      @bathing_sites = BathingSite.all
+    end
+
     @markers = @bathing_sites.geocoded.map do |bathing_site|
       {
         lat: bathing_site.latitude,
@@ -15,6 +21,7 @@ class BathingSitesController < ApplicationController
 
   def show
     authorize @bathing_site
+    @favourite = Favourite.find_by(user: current_user, bathing_site: @bathing_site)
   end
 
   def new
@@ -37,7 +44,7 @@ class BathingSitesController < ApplicationController
     authorize @bathing_site
   end
 
-  def update4
+  def update
     authorize @bathing_site
     @bathing_site.update(bathing_site_params)
     redirect_to bathing_site_path(@bathing_site)
