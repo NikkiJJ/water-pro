@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   resources :bathing_sites do
     resources :reviews
     resources :favourites, only: [:create]
-    get '/reports/new', to: 'reports#new', as: 'new_report'
-    post '/reports', to: 'reports#create', as: 'reports'
-    get '/report_confirmation_page', to: 'reports#confirmation_page'
+    resources :reports, only: [:new, :create]
   end
 
   resources :favourites, only: [:destroy]
@@ -16,5 +14,5 @@ Rails.application.routes.draw do
   resources :users
 
   resources :reports, only: [:show]
-
+  get '/report_confirmation_page/:id', to: 'reports#confirmation_page', as: :report_confirmation_page
 end
