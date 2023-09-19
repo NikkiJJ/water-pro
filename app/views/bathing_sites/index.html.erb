@@ -1,12 +1,12 @@
 <div class="body">
   <% if @bathing_sites.present? %>
-    <div class="text-center mt-3">
-      <h1><%= @bathing_sites.first.site_name.capitalize %></h1>
+    <div class="card-container">
+    <br>
     </div>
     <div class="map-container">
       <!-- data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"  -->
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"  -->
 
       </div>
     <div class="card-container">
