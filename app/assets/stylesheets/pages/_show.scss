@@ -68,6 +68,11 @@
 .body {
   background-color: $dark-blue;
   height: 800px;
+    h1 {
+      padding: 60px;
+      color: $light-gray;
+    }
+}
 
   h1, a {
     text-decoration: none;

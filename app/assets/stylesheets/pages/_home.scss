@@ -34,7 +34,8 @@ nav {
 
   background-size: cover;
   background-position: center;
-  color: $dark-blue;
+  background-color: $light-blue;
+  color: $light-gray;
   text-align: center;
   padding: 100px 0;
 }
@@ -45,11 +46,17 @@ nav {
 }
 
 .features {
+  background-color: $dark-blue;
+  border-top: solid;
+  box-shadow: 10px 10px 5px rgb(45, 45, 45);
+  border-color: $yellow;
   display: flex;
   justify-content: space-between;
+  height: 350px;
 }
 
 .feature {
+  color: $light-gray;
   flex: 1;
   text-align: center;
   padding: 50px;
