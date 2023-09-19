@@ -49,6 +49,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 gem 'faker'
 
+gem 'httparty'
 gem "geocoder"
 gem "pundit"
 gem "bootstrap", "~> 5.2"
