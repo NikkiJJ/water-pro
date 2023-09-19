@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_201450) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_19_145539) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_201450) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.bigint "bathing_site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "issue"
+    t.text "comment"
+    t.index ["bathing_site_id"], name: "index_reports_on_bathing_site_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -76,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_201450) do
   add_foreign_key "bathing_sites", "users"
   add_foreign_key "favourites", "bathing_sites"
   add_foreign_key "favourites", "users"
+  add_foreign_key "reports", "bathing_sites"
   add_foreign_key "reviews", "bathing_sites"
   add_foreign_key "reviews", "users"
 end
