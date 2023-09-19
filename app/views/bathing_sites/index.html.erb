@@ -17,9 +17,25 @@
               <h1><%= bathing_site.site_name.capitalize %></h1>
             </div>
             <div class="card-body">
-              <p class="card-text">Water Quality: <%= bathing_site.water_quality %></p>
-              <p class="card-text">Tide: <%= bathing_site.tide %></p>
-              <p class="card-text">Location: <%= bathing_site.site_name %></p>
+            <% if @bathing_site.water_quality == "closed" %>
+                  <div class="info-item">
+                      <h3>Water quality: <%= @bathing_site.water_quality %></h3>
+                      <i class="fa-solid fa-triangle-exclamation fa-2xl"></i>
+                  </div>
+              <% else %>
+                  <div class="info-item">
+                      <h3 id="txt">Water quality: <%= @bathing_site.water_quality %></h3>
+                      <i class="fa-regular fa-circle-check fa-2xl"></i>
+                  </div>
+              <% end %>
+                  <div class="info-item">
+                      <h3 id="txt">Tidal level: <%= @bathing_site.tide %></h3>
+                      <i class="fa-solid fa-water fa-2xl"></i>
+                  </div>
+                  <div class="info-item">
+                      <h3 id="txt">Location: <%= @bathing_site.site_name %></h3>
+                      <i class="fa-solid fa-earth-europe fa-2xl"></i>
+                </div>
               <div class="container-btn-options">
                 <%= render 'shared/buttons/back_button' %>
                 <%= render 'shared/buttons/tide_button' %>
