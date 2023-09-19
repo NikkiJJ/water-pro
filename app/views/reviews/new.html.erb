@@ -1,15 +1,18 @@
-<h2>Submit a Review for <%= @bathing_site.site_name %></h2>
+<div class="page-container">
+    <h2>Submit a Review for <%= @bathing_site.site_name %></h2>
+        <div class="form-container">
+            <%= simple_form_for [@bathing_site, @review], method: :post, class: "form-horizontal" do |f| %>
+                <%= f.label :title, class: 'labels' %>
+                <%= f.text_area :title, class: 'form-control' %>
 
-    <%= simple_form_for [@bathing_site, @review], method: :post, class: "form-horizontal" do |f| %>
-        <%= f.label :title %>
-        <%= f.text_area :title, class: 'form-control' %>
+                <%= f.label :body, class: 'labels' %>
+                <%= f.text_area :body, class: 'form-control' %>
 
-        <%= f.label :body %>
-        <%= f.text_area :body, class: 'form-control' %>
+                <% f.label :ratings, class: 'labels' %>
+                <%= f.input :ratings, as: :integer, class: 'form-control' %>
 
-        <%= f.label :ratings %>
-        <%= f.input :ratings, as: :integer, class: 'form-control' %>
+                <%= f.submit :submit, class: 'btn submit-btn' %>
 
-        <%= f.submit :submit, class: 'btn submit-btn' %>
-
-    <% end %>
+            <% end %>
+        </div>
+</div>
