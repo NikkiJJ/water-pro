@@ -1,14 +1,14 @@
 <div class="body">
   <% if @bathing_sites.present? %>
     <div class="card-container">
-    <br>
+      <br>
     </div>
     <div class="map-container">
       <!-- data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"  -->
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" -->
+    </div>
 
-      </div>
     <div class="card-container">
       <% @bathing_sites.each do |bathing_site| %>
         <div class="card">
@@ -16,39 +16,40 @@
             <div class="site-header">
               <h1><%= bathing_site.site_name.capitalize %></h1>
             </div>
+          <% end %>
             <div class="card-body">
-            <% if @bathing_site.water_quality == "closed" %>
-                  <div class="info-item">
-                      <h3>Water quality: <%= @bathing_site.water_quality %></h3>
-                      <i class="fa-solid fa-triangle-exclamation fa-2xl"></i>
-                  </div>
-              <% else %>
-                  <div class="info-item">
-                      <h3 id="txt">Water quality: <%= @bathing_site.water_quality %></h3>
-                      <i class="fa-regular fa-circle-check fa-2xl"></i>
-                  </div>
-              <% end %>
-                  <div class="info-item">
-                      <h3 id="txt">Tidal level: <%= @bathing_site.tide %></h3>
-                      <i class="fa-solid fa-water fa-2xl"></i>
-                  </div>
-                  <div class="info-item">
-                      <h3 id="txt">Location: <%= @bathing_site.site_name %></h3>
-                      <i class="fa-solid fa-earth-europe fa-2xl"></i>
+              <% if bathing_site.water_quality == "closed" %>
+                <div class="info-item">
+                  <h3>Water quality: <%= bathing_site.water_quality %></h3>
+                  <i class="fa-solid fa-triangle-exclamation fa-2xl"></i>
                 </div>
+              <% else %>
+                <div class="info-item">
+                  <h3 class="txt">Water quality: <%= bathing_site.water_quality %></h3>
+                  <i class="fa-regular fa-circle-check fa-2xl"></i>
+                </div>
+              <% end %>
+              <div class="info-item">
+                <h3 class="txt">Tidal level: <%= bathing_site.tide %></h3>
+                <i class="fa-solid fa-water fa-2xl"></i>
+              </div>
+              <div class="info-item">
+                <h3 class="txt">Location: <%= bathing_site.site_name %></h3>
+                <i class="fa-solid fa-earth-europe fa-2xl"></i>
+              </div>
               <div class="container-btn-options">
                 <%= render 'shared/buttons/back_button' %>
                 <%= render 'shared/buttons/tide_button' %>
                 <%= render 'shared/buttons/weather_button' %>
                 <%= render 'shared/buttons/get_directions_button' %>
               </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+            </div>
+        </div>
+      <% end %>
     </div>
   <% else %>
     <div class="text-center mt-3">
       <h1>No bathing sites found.</h1>
     </div>
   <% end %>
+</div>
