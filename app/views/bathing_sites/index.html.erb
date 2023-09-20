@@ -9,21 +9,21 @@
 <div class="card-container">
   <% @bathing_sites.each do |bathing_site| %>
     <div class="card">
-      <%= link_to bathing_site_path(bathing_site) do %>
+      <%# <%= link_to bathing_site_path(bathing_site) do %> %>
         <div class="card-header">
           <%= bathing_site.site_name.capitalize %>
         </div>
         <div class="card-body">
-          <p class="card-text">Water Quality: <%= bathing_site.water_quality %></p>
-          <p class="card-text">Tide: <%= bathing_site.tide %></p>
-          <p class="card-text">Location: <%= bathing_site.site_name %></p>
+          <p>Water Quality: <%= bathing_site.water_quality %></p>
+          <p>Tide: <%= bathing_site.tide %></p>
+          <p>Location: <%= bathing_site.site_name %></p>
         <div class="container-btn-options">
           <%= render 'shared/buttons/back_button' %>
           <%= render 'shared/buttons/tide_button' %>
           <%= render 'shared/buttons/weather_button' %>
           <%= render 'shared/buttons/get_directions_button' %>
-        </div>
-      <% end %>
+        <%# </div>
+      <% end %> %>
     </div>
   <% end %>
 </div>
