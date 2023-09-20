@@ -2,8 +2,8 @@ class BathingSite < ApplicationRecord
   belongs_to :user, optional: true
 
   # has_many :users, through: :favourites
-  has_many :reviews, dependent: :destroy_all
-  has_many :favourites, dependent: :destroy_all
+  has_many :reviews, dependent: :destroy
+  has_many :favourites, dependent: :destroy
 
   geocoded_by :region
   after_validation :geocode, if: :will_save_change_to_region?
