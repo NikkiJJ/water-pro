@@ -1,6 +1,6 @@
 <div class="page-container">
-    <h2>Submit a Review for <%= @bathing_site.site_name %></h2>
         <div class="form-container">
+          <h2>Submit a Review for <%= @bathing_site.site_name %></h2>
             <%= simple_form_for [@bathing_site, @review], method: :post, class: "form-horizontal" do |f| %>
                 <%= f.label :title, class: 'labels' %>
                 <%= f.text_area :title, class: 'form-control' %>

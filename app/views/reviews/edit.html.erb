@@ -1,4 +1,6 @@
-<h2><strong>Edit Your Review</strong></h2>
+<div class="page-container">
+  <div class="form-container">
+    <h2><strong>Edit Your Review</strong></h2>
       <%= simple_form_for [@bathing_site, @review], html: { class: 'form' } do |f| %>
           <%= f.label :title %>
           <%= f.text_area :title, class: 'form-control' %>
@@ -11,3 +13,5 @@
 
         <%= f.submit :submit, class: 'btn submit-btn' %>
       <% end %>
+  </div>
+</div>

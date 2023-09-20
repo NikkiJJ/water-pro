@@ -1,23 +1,28 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   justify-content: flex-start;
   height: 1020px;
-  background-image: url("https://images.unsplash.com/photo-1507166763745-bfe008fbb831?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
-    h2 {
-      color: $light-gray;
-      padding: 60px;
-    }
+  background-image: url("https://images.unsplash.com/photo-1440410682967-80154beff618?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
 }
 
 .form-container {
-  height: 800px;
-  width: 600px;
+  height: 1020px;
+  width: 800px;
   background-color: $light-gray;
-  padding: 60px;
-  border-style: solid;
-  border-radius: 20px;
+  padding: 40px;
+  border-left-style: solid;
   border-color: $yellow;
-  box-shadow: 10px 10px 5px rgb(19, 23, 70);
+  h2 {
+    color: $dark-blue;
+    padding: 40px;
+  }
+}
+
+.sign-up-buttons {
+  margin-top: 40px;
+  h4 {
+    padding: 10px;
+  }
 }
