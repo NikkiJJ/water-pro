@@ -1,10 +1,11 @@
-.footer-content {
+.footer {
   display: flex;
   background-color: $footer-yellow;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
+  margin-top: auto;
 }
 
 .footer-item {

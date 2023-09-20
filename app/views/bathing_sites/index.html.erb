@@ -19,29 +19,13 @@
           <% end %>
             <div class="card-body">
               <% if bathing_site.water_quality == "closed" %>
-                <div class="info-item">
-                  <h3>Water quality: <%= bathing_site.water_quality %></h3>
-                  <i class="fa-solid fa-triangle-exclamation fa-2xl"></i>
-                </div>
+                  <h5 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h5>
               <% else %>
-                <div class="info-item">
-                  <h3 class="txt">Water quality: <%= bathing_site.water_quality %></h3>
-                  <i class="fa-regular fa-circle-check fa-2xl"></i>
-                </div>
+                  <h5 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h5>
               <% end %>
-              <div class="info-item">
-                <h3 class="txt">Tidal level: <%= bathing_site.tide %></h3>
-                <i class="fa-solid fa-water fa-2xl"></i>
-              </div>
-              <div class="info-item">
-                <h3 class="txt">Location: <%= bathing_site.site_name %></h3>
-                <i class="fa-solid fa-earth-europe fa-2xl"></i>
-              </div>
               <div class="container-btn-options">
                 <%= render 'shared/buttons/back_button' %>
-                <%= render 'shared/buttons/tide_button' %>
-                <%= render 'shared/buttons/weather_button' %>
-                <%= render 'shared/buttons/get_directions_button' %>
+                <%= render 'shared/buttons/see_more' %>
               </div>
             </div>
         </div>
