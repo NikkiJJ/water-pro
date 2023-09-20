@@ -1,14 +1,14 @@
 <div class="body">
   <% if @bathing_sites.present? %>
-    <div class="text-center mt-3">
-      <h1><%= @bathing_sites.first.site_name.capitalize %></h1>
+    <div class="card-container">
+      <br>
     </div>
     <div class="map-container">
       <!-- data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"  -->
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" -->
+    </div>
 
-      </div>
     <div class="card-container">
       <% @bathing_sites.each do |bathing_site| %>
         <div class="card">
@@ -16,23 +16,24 @@
             <div class="site-header">
               <h1><%= bathing_site.site_name.capitalize %></h1>
             </div>
+          <% end %>
             <div class="card-body">
-              <p class="card-text">Water Quality: <%= bathing_site.water_quality %></p>
-              <p class="card-text">Tide: <%= bathing_site.tide %></p>
-              <p class="card-text">Location: <%= bathing_site.site_name %></p>
+              <% if bathing_site.water_quality == "closed" %>
+                  <h5 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h5>
+              <% else %>
+                  <h5 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h5>
+              <% end %>
               <div class="container-btn-options">
                 <%= render 'shared/buttons/back_button' %>
-                <%= render 'shared/buttons/tide_button' %>
-                <%= render 'shared/buttons/weather_button' %>
-                <%= render 'shared/buttons/get_directions_button' %>
+                <%= render 'shared/buttons/see_more' %>
               </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+            </div>
+        </div>
+      <% end %>
     </div>
   <% else %>
     <div class="text-center mt-3">
       <h1>No bathing sites found.</h1>
     </div>
   <% end %>
+</div>
