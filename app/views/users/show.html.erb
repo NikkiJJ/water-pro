@@ -1,9 +1,10 @@
-<h1>User Dashboard</h1>
-
-<% @favourites.each do |f| %>
-  <div>
-    <%= link_to bathing_site_path(f.bathing_site.id) do %>
-      <%= f.bathing_site.site_name %>
-    <% end %>
+<div class="dashboard-body">
+  <div class="card-container">
+    <h1>Your Favourites</h1>
+    <% @favourites.each do |f| %>
+        <%= link_to bathing_site_path(f.bathing_site.id), class: "card" do %>
+          <%= f.bathing_site.site_name.capitalize %>
+        <% end %>
+    <% end  %>
   </div>
-<% end  %>
+</div>
