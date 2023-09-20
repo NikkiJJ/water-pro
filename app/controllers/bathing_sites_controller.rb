@@ -17,6 +17,7 @@ class BathingSitesController < ApplicationController
         lng: bathing_site.longitude
       }
     end
+    @bathing_site = @bathing_sites.first
   end
 
   def show

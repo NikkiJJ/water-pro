@@ -1,46 +1,54 @@
 .icons {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding-top: 20px;
   padding-left: 50px;
-    a {
-      padding: 10px;
-      text-decoration: none;
-    }
+
+  a {
+    padding: 10px;
+    text-decoration: none;
+  }
 }
 
-.show-img {
-  padding-left: 50px;
-  padding-top: 50px;
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }
 
 .card {
-  display: flex;
-  flex-direction: row;
-  width: 1600px;
-  height: 600px;
-  margin-left: 150px;
-  border-style: solid;
-  border-color: $yellow;
+  width: 40%;
+  margin: 20px auto;
+  border: 2px solid $yellow;
   border-radius: 20px;
   background-color: $light-blue;
-  box-shadow: 10px 10px 5px rgb(45, 45, 45);
+  box-shadow: 10px 10px 5px rgba(45, 45, 45, 0.2);
   color: $light-gray;
+  display: flex;
+  align-items: center;
+}
+
+.card-info {
+  margin-bottom: 60px;
+  padding: 50px 100px;
+
+  h3 {
+    padding: 20px;
+    color: $light-gray;
+  }
+}
+
+.card-text {
+  text-decoration: none;
+  color: $light-gray;
+  text-align: center;
 }
 
 .img-icon {
   display: flex;
   flex-direction: column;
-}
-
-.card-info {
-  margin-bottom: 60px;
-  padding-top: 50px;
-  padding-left: 100px;
-    h3 {
-      padding: 20px;
-      color: $light-gray;
-    }
 }
 
 .button-center {
@@ -53,33 +61,47 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 800px;
-   h3 {
+  width: 90%;
+
+  h3 {
     color: $light-gray;
-   }
+  }
+}
+
+.site-header {
+  margin: -20px;
 }
 
 .body {
   background-color: $dark-blue;
-  height: 800px;
     h1 {
-      padding: 60px;
+      padding: 30px;
       color: $light-gray;
     }
 }
 
-#txt {
-  color: $light-gray;
+  h1, a {
+    text-decoration: none;
+    padding: 10px;
+    color: $light-gray;
+  }
+
+.map-container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('Screenshot\ 2023-09-19\ at\ 13.12.56.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  box-shadow: 0px 0px 10px 9px rgba(222, 214, 214, 0.2);
 }
 
-.fa-share-from-square {
-  color: $yellow;
-}
-
-.fa-comment-dots {
-  color: $yellow;
-}
-
+.fa-share-from-square,
+.fa-comment-dots,
 .fa-heart {
   color: $yellow;
 }
@@ -89,5 +111,5 @@
 }
 
 .fa-circle-check {
-  color: green;
+  color: rgb(38, 255, 38);
 }

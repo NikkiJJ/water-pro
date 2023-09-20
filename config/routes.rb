@@ -4,14 +4,15 @@ Rails.application.routes.draw do
   resources :bathing_sites do
     resources :reviews
     resources :favourites, only: [:create]
+    resources :reports, only: [:new, :create]
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :favourites, only: [:destroy]
-  # Defines the root path route ("/")
-  # root "articles#index"
 
   resources :pages
 
   resources :users
+
+  resources :reports, only: [:show]
+  get '/report_confirmation_page/:id', to: 'reports#confirmation_page', as: :report_confirmation_page
 end

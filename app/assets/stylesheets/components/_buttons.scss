@@ -4,7 +4,7 @@
   text-decoration: none;
   text-align: center;
   border-radius: 20px 20px 20px 20px;
-  width: 140px;
+  width: 145px;
   height: 45px;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@
   margin: 5px;
 
   &:hover {
-    background-color:$light-blue;
+    background-color:$yellow;
   }
 }
 
@@ -24,7 +24,7 @@
   font-size: 14px;
 
   &:hover {
-    background-color:$light-blue;
+    background-color:$yellow;
   }
 
 }
