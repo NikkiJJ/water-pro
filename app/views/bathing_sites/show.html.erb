@@ -1,7 +1,7 @@
 <div class="body beach-show-page">
     <div class="text-center">
       <h1><%= @bathing_site.site_name.capitalize %></h1>
-    </div>
+      </div>
         <div class="card">
             <div class="img-icon">
                 <div class="show-img">
@@ -44,3 +44,9 @@
                     </div>
             </div>
         </div>
+        <div class="review-card">
+            <%= render "shared/review_card", locals: { reviews: @reviews } %>
+        </div>
+      </div>
+    </div>
+</div>

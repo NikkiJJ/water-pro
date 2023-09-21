@@ -1,0 +1,9 @@
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+    <h3 class="title-date"><%= review.title %></h3>
+    <p><%= review.body %></p>
+    <p><%= review.date %></p>
+  <% end %>
+<% else %>
+  <h2>No reviews available for <%= @bathing_site.site_name %></h2>
+<% end %>
