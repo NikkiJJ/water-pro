@@ -14,14 +14,14 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.date = Date.today
     if @review.save
-      redirect_to bathing_site_reviews_path(@bathing_site)
+      redirect_to bathing_site_path(@bathing_site)
     else
       render :new
     end
   end
 
   def index
-    @reviews = policy_scope(Review).all
+    @reviews = policy_scope(Review).where(bathing_site: bathing_site)
     @bathing_site = BathingSite.find(params[:bathing_site_id])
   end
 
