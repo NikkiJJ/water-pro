@@ -1,3 +1,5 @@
+function initMap() {
+}
 document.addEventListener('DOMContentLoaded', function () {
   const getDirectionsButton = document.getElementById('getDirectionsButton');
 
