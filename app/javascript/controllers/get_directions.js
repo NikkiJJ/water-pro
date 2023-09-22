@@ -12,14 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
               };
 
 
-              const bathingSiteLocation = {
-                  lat: 51.5074,
-                  lng: -0.1278
-              };
+              const bathingSiteName = getDirectionsButton.getAttribute('data-bathing-site-name');
 
 
-              const directionsURL = `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${bathingSiteLocation.lat},${bathingSiteLocation.lng}`;
-
+              const directionsURL = `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${bathingSiteName}`;
 
               window.open(directionsURL, '_blank');
           });

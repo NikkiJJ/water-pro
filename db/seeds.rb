@@ -42,10 +42,12 @@ CSV.foreach(csv_path, headers: true) do |row|
   water_quality = quality['latestComplianceAssessment']['complianceClassification']['name']['_value']
   site_name = data['result']['primaryTopic']['name']['_value']
 
+
   BathingSite.create!(
     site_name: site_name,
     water_quality: water_quality,
-    user: user
+    user: user,
+
   )
-p "Created #{site_name} bathing site!"
+  p "Created #{site_name} bathing site!"
 end
