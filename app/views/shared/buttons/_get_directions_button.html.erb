@@ -1,1 +1,1 @@
-<%= link_to 'Get Directions', '#', id: 'getDirectionsButton', class: 'button', data: { turbo: true, bathing_site_name: @bathing_site.site_name } %>
+<%= link_to 'Get Directions', '#', id: 'getDirectionsButton', class: 'button', data: { bathing_site_name: @bathing_site.site_name }, 'data-controller': "get-directions", 'data-turbo': false %>
