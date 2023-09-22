@@ -1,6 +1,6 @@
 .footer {
   display: flex;
-  background-color: $footer-yellow;
+  background-color: white;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -12,6 +12,9 @@
   flex-basis: calc(33.33% - 20px);
   margin-right: 10px;
   text-align: center;
+  a {
+    color: black;
+  }
 }
 
 .footer-item:last-child {
