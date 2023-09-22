@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import GetDirectionsController from "./get_directions_controller"
+application.register("get-directions", GetDirectionsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
