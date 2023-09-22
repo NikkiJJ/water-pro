@@ -100,12 +100,6 @@
   box-shadow: 0px 0px 10px 9px rgba(222, 214, 214, 0.2);
 }
 
-.fa-share-from-square,
-.fa-comment-dots,
-.fa-heart {
-  color: $yellow;
-}
-
 .fa-triangle-exclamation {
   color: red;
 }
@@ -126,4 +120,67 @@
   color: $light-gray;
   display: flex;
   align-items: center;
+}
+
+.carousel-item {
+  img {
+    height: 400px;
+  }
+}
+
+.water-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+    h4 {
+      margin-left: 20px;
+    }
+}
+
+.tide-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  h4 {
+    margin-left: 20px;
+  }
+}
+
+.fav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  h4 {
+    margin-left: 20px;
+  }
+}
+
+.review-card {
+  width: 50%;
+    h3 {
+      padding: 40px 20px 20px 0;
+      border-bottom: solid;
+      border-image-slice: 1;
+      border-image-source: linear-gradient(to left, $primary-accent, $accent-medium);
+    }
+}
+
+.bottom-page {
+  display: flex;
+}
+
+.form-container {
+  width: 20%;
+  border-left-style: solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, $primary-accent, $accent-medium);
+}
+
+.each-review {
+  margin: 5px 40px 2px 5px;
+  border-radius: 10px;
+  padding: 15px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
