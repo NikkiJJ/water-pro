@@ -30,13 +30,13 @@
       </div>
      <% if @bathing_site.water_quality == "closed" %>
       <div class="water-item">
-          <i class="fa-solid fa-check"></i>
-          <h4>The water quality is <%= @bathing_site.water_quality %></h4>
+          <i class="fa-solid fa-exclamation"></i>
+          <h4>The water quality is <%= @bathing_site.water_quality.downcase %></h4>
       </div>
     <% else %>
         <div class="water-item">
-        <i class="fa-solid fa-exclamation"></i>
-        <h4>The water quality is <%= @bathing_site.water_quality %></h4>
+        <i class="fa-solid fa-check"></i>
+        <h4>The water quality is <%= @bathing_site.water_quality.downcase %></h4>
       </div>
     <% end %>
       <div class="tide-item">
@@ -50,14 +50,14 @@
   <div class="bottom-page">
       <div class="review-card">
           <h3>Share your thoughts...</h3>
-              <div class="each-review">
-                <% if @reviews.any? %>
+            <% if @reviews.any? %>
                   <% @reviews.each do |review| %>
+                  <div class="each-review">
                     <h4><%= review.title %></h4>
                     <p><%= review.body %></p>
                     <p><%= review.date %></p>
-              </div>
-              <% end %>
+                  </div>
+                  <% end %>
             <% else %>
               <h2>No reviews available for <%= @bathing_site.site_name %></h2>
             <% end %>
