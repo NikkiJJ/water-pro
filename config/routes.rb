@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :reports, only: [:show]
+  resources :reports, only: [:show, :index, :update, :destroy ] do
+    member do
+      patch 'confirmation', to: 'reports#update_confirmation', as: :confirmation
+    end
+  end
+
   get '/report_confirmation_page/:id', to: 'reports#confirmation_page', as: :report_confirmation_page
 end

@@ -25,8 +25,13 @@ class BathingSitesController < ApplicationController
     authorize @bathing_site
     @favourite = Favourite.find_by(user: current_user, bathing_site: @bathing_site)
     @reviews = @bathing_site.reviews.all
+<<<<<<< HEAD
 
     @weather_data = retrieve_weather_data(@bathing_site.latitude, @bathing_site.longitude)
+=======
+    @new_report = Report.new(bathing_site: @bathing_site)
+    @reports = @bathing_site.reports
+>>>>>>> master
   end
 
   def new

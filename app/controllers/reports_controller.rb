@@ -1,8 +1,17 @@
 class ReportsController < ApplicationController
 
-  def new
-    @report = Report.new
-    @bathing_site = BathingSite.find(params[:bathing_site_id])
+  def index
+    @reports = policy_scope(Report).all
+  end
+
+  # def new
+  #   @bathing_site = BathingSite.find(params[:bathing_site_id])
+  #   @report = Report.new(bathing_site: @bathing_site)
+  #   authorize @report
+  # end
+
+  def show
+    @report = Report.find(params[:id])
     authorize @report
   end
 
@@ -22,6 +31,28 @@ class ReportsController < ApplicationController
   def confirmation_page
     @report = Report.find(params[:id])
     authorize @report
+  end
+
+  def update
+    @report = Report.find(params[:id])
+    authorize @report
+    @report.update(confirmation: true)
+    redirect_to reports_path
+  end
+
+  def update_confirmation
+    @report = Report.find(params[:id])
+    authorize @report
+    @report.update(confirmation: true)
+    redirect_to reports_path
+  end
+
+  def destroy
+    @report = Report.find(params[:id])
+    authorize @report
+    @report.destroy
+
+    redirect_to reports_path
   end
 
   private

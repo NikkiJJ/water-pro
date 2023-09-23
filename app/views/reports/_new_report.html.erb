@@ -1,0 +1,11 @@
+<h2>Report an issue at <%= @bathing_site.site_name %></h1>
+
+<%= simple_form_for [@bathing_site, @new_report] do |f|%>
+  <% f.label :issue %>
+  <%= f.input :issue, as: :select, collection: (['Oil Spill', 'Weather Issues', 'High Tide', 'Other']) %>
+
+  <% f.label :comment %>
+  <%= f.input :comment, as: :text %>
+
+  <%= f.button :submit, class: "sign-up-buttons" %>
+<% end %>
