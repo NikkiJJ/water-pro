@@ -26,7 +26,7 @@
 
   <div class="site-info">
       <div class="fav">
-        <%= render "shared/buttons/favourite_button" %>
+        <i class="fa-solid fa-heart"></i>
       </div>
      <% if @bathing_site.water_quality == "closed" %>
       <div class="water-item">
@@ -39,15 +39,14 @@
         <h4>The water quality is <%= @bathing_site.water_quality.downcase %></h4>
       </div>
     <% end %>
-      <div class="tide-item">
-        <i class="fa-solid fa-droplet"></i>
-        <h4>The tide today is <%= @bathing_site.tide %></h4>
-      </div>
-
-    <% if @bathing_site.reports.any? { |report| report.confirmation } %>
-      <%= render "reports/show", locals: { reports: @reports} %>
-    <% end %>
-
+   <div class="tide-item">
+  <i class="fa-solid fa-droplet"></i>
+  <h4>The tide today is <%= @bathing_site.tide %></h4>
+</div>
+<div class="weather-info">
+  <% if @weather_data.present? %>
+  <i class="fa-solid fa-temperature-half"></i>
+  <h4> Current temperature is: <%= @weather_data['main']['temp'] %>°C</h4>
   </div>
   <div class="weather-info">
   <i class="fa-solid fa-rainbow"></i>
@@ -75,7 +74,7 @@
             <% end %>
       </div>
       <div class="form-container">
-                <%# <form>
+                <form>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -90,9 +89,7 @@
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
-            </form> %>
-
-            <%= render "reports/new_report", locals: { report: @new_report, bathing_site: @bathing_site} %>
+            </form>
       </div>
   </div>
 </div>
