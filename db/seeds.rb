@@ -56,5 +56,5 @@ CSV.foreach(csv_path, headers: true) do |row|
     region: district
 
   )
-  p "Created #{site_name} bathing site!"
+  p "Created #{site_name}, #{district} bathing site!"
 end
