@@ -18,6 +18,14 @@ class ReportPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    user.admin? ? true : false
+  end
+
+  def destroy?
+    user.admin? ? true : false
+  end
+
   def confirmation_page?
     true
   end

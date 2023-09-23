@@ -43,6 +43,11 @@
         <i class="fa-solid fa-droplet"></i>
         <h4>The tide today is <%= @bathing_site.tide %></h4>
       </div>
+
+    <% if @bathing_site.reports.any? { |report| report.confirmation } %>
+      <%= render "reports/show", locals: { reports: @reports} %>
+    <% end %>
+
   </div>
 
     <h2 class="text-center">. . .</h2>
@@ -80,7 +85,7 @@
               <button type="submit" class="btn btn-primary">Submit</button>
             </form> %>
 
-            <%= render "reports/new_report", locals: { report: @report, bathing_site: @bathing_site} %>
+            <%= render "reports/new_report", locals: { report: @new_report, bathing_site: @bathing_site} %>
       </div>
   </div>
 </div>
