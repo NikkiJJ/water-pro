@@ -39,12 +39,23 @@
         <h4>The water quality is <%= @bathing_site.water_quality.downcase %></h4>
       </div>
     <% end %>
-      <div class="tide-item">
-        <i class="fa-solid fa-droplet"></i>
-        <h4>The tide today is <%= @bathing_site.tide %></h4>
-      </div>
+   <div class="tide-item">
+  <i class="fa-solid fa-droplet"></i>
+  <h4>The tide today is <%= @bathing_site.tide %></h4>
+</div>
+<div class="weather-info">
+  <% if @weather_data.present? %>
+  <i class="fa-solid fa-temperature-half"></i>
+  <h4> Current temperature is: <%= @weather_data['main']['temp'] %>°C</h4>
   </div>
-
+  <div class="weather-info">
+  <i class="fa-solid fa-rainbow"></i>
+  <h4>Conditions: <%= @weather_data['weather'][0]['description'] %></p>
+  </div>
+  <% else %>
+    <p>Weather information not available.</p>
+  <% end %>
+</div>
     <h2 class="text-center">. . .</h2>
 
   <div class="bottom-page">
