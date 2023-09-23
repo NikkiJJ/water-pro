@@ -10,7 +10,10 @@ class BathingSite < ApplicationRecord
 
   include PgSearch::Model
 
-  pg_search_scope :search_by_site_name, against: :site_name, using: {
+  pg_search_scope :search_by_site_name_and_region, against: {
+    site_name: 'A',
+    region: 'B'
+  }, using: {
     tsearch: { prefix: true }
   }
 end
