@@ -51,11 +51,11 @@ gem "cloudinary"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-gem 'open-weather-ruby-client'
+
 
 gem 'faker'
 gem 'pg_search'
-gem 'open-weather-ruby-client'
+
 gem 'httparty'
 gem "geocoder"
 gem "pundit"
