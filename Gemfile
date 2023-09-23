@@ -53,7 +53,7 @@ gem "cloudinary"
 # gem "image_processing", "~> 1.2"
 gem 'faker'
 gem 'pg_search'
-
+gem 'open-weather-ruby-client'
 gem 'httparty'
 gem "geocoder"
 gem "pundit"
