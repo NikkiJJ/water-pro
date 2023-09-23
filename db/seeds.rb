@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-#!/usr/bin/env ruby
+# !/usr/bin/env ruby
 
 # Load Rails application environment
 
@@ -32,9 +32,8 @@ csv_path = Rails.root.join('app', 'data', 'site.csv')
 
 CSV.foreach(csv_path, headers: true) do |row|
   eubwid = row['EUBWID']
-
-   base_url = 'https://environment.data.gov.uk/id/bathing-water/'
-   api_url = "#{base_url}#{eubwid}.json".freeze
+  base_url = 'https://environment.data.gov.uk/id/bathing-water/'
+  api_url = "#{base_url}#{eubwid}.json".freeze
 
   response = HTTParty.get(api_url)
   data = response.parsed_response
@@ -54,7 +53,6 @@ CSV.foreach(csv_path, headers: true) do |row|
     latitude: latitude,
     longitude: longitude,
     region: district
-
   )
   p "Created #{site_name}, #{district} bathing site!"
 end
