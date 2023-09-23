@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_23_161848) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_212934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_23_161848) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "eubwid"
     t.index ["user_id"], name: "index_bathing_sites_on_user_id"
   end
 
@@ -34,18 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_23_161848) do
     t.datetime "updated_at", null: false
     t.index ["bathing_site_id"], name: "index_favourites_on_bathing_site_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.string "recipient_type", null: false
-    t.bigint "recipient_id", null: false
-    t.string "type", null: false
-    t.jsonb "params"
-    t.datetime "read_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["read_at"], name: "index_notifications_on_read_at"
-    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
