@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :reports, only: [:show]
+  resources :reports, only: [:show, :index]
   get '/report_confirmation_page/:id', to: 'reports#confirmation_page', as: :report_confirmation_page
 end

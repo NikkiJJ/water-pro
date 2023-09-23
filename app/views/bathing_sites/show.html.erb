@@ -26,7 +26,7 @@
 
   <div class="site-info">
       <div class="fav">
-        <i class="fa-solid fa-heart"></i>
+        <%= render "shared/buttons/favourite_button" %>
       </div>
      <% if @bathing_site.water_quality == "closed" %>
       <div class="water-item">
@@ -63,7 +63,7 @@
             <% end %>
       </div>
       <div class="form-container">
-                <form>
+                <%# <form>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -78,7 +78,9 @@
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </form> %>
+
+            <%= render "reports/new_report", locals: { report: @report, bathing_site: @bathing_site} %>
       </div>
   </div>
 </div>

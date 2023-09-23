@@ -24,6 +24,7 @@ class BathingSitesController < ApplicationController
     authorize @bathing_site
     @favourite = Favourite.find_by(user: current_user, bathing_site: @bathing_site)
     @reviews = @bathing_site.reviews.all
+    @report = Report.new(bathing_site: @bathing_site)
   end
 
   def new

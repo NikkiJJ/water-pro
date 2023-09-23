@@ -51,3 +51,12 @@ CSV.foreach(csv_path, headers: true) do |row|
   )
   p "Created #{site_name} bathing site!"
 end
+
+admin = User.create(
+  email: "admin@admin.com",
+  password: "123456",
+  first_name:"Admin",
+  last_name:"User",
+  nickname: "Admin",
+  admin: true
+)

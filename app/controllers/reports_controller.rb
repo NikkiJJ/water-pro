@@ -1,10 +1,14 @@
 class ReportsController < ApplicationController
 
-  def new
-    @report = Report.new
-    @bathing_site = BathingSite.find(params[:bathing_site_id])
-    authorize @report
+  def index
+    @reports = policy_scope(BathingSite).all
   end
+
+  # def new
+  #   @bathing_site = BathingSite.find(params[:bathing_site_id])
+  #   @report = Report.new(bathing_site: @bathing_site)
+  #   authorize @report
+  # end
 
   def create
     @report = Report.new(report_params)
