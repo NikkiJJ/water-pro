@@ -41,12 +41,19 @@ CSV.foreach(csv_path, headers: true) do |row|
   quality = data['result']['primaryTopic']
   water_quality = quality['latestComplianceAssessment']['complianceClassification']['name']['_value']
   site_name = data['result']['primaryTopic']['name']['_value']
+  latitude = data['result']['primaryTopic']['samplingPoint']['lat']
+  longitude = data['result']['primaryTopic']['samplingPoint']['long']
+  district = data['result']['primaryTopic']['district'][0]['name']['_value']
+
 
 
   BathingSite.create!(
     site_name: site_name,
     water_quality: water_quality,
     user: user,
+    latitude: latitude,
+    longitude: longitude,
+    region: district
 
   )
   p "Created #{site_name} bathing site!"

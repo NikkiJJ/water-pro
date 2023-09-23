@@ -6,7 +6,7 @@ class BathingSitesController < ApplicationController
     @bathing_sites = policy_scope(BathingSite).all
 
     if params[:query].present?
-      @bathing_sites = BathingSite.search_by_site_name(params[:query])
+      @bathing_sites = BathingSite.search_by_site_name_and_region(params[:query])
     else
       @bathing_sites = BathingSite.all
     end
