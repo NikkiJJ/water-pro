@@ -26,7 +26,7 @@
 
   <div class="site-info">
       <div class="fav">
-        <i class="fa-solid fa-heart"></i>
+        <%= render "shared/buttons/favourite_button" %>
       </div>
      <% if @bathing_site.water_quality == "closed" %>
       <div class="water-item">
@@ -39,11 +39,11 @@
         <h4>The water quality is <%= @bathing_site.water_quality.downcase %></h4>
       </div>
     <% end %>
-   <div class="tide-item">
-  <i class="fa-solid fa-droplet"></i>
-  <h4>The tide today is <%= @bathing_site.tide %></h4>
-</div>
-<div class="weather-info">
+      <div class="tide-item">
+        <i class="fa-solid fa-droplet"></i>
+        <h4>The tide today is <%= @bathing_site.tide %></h4>
+      </div>
+      <div class="weather-info">
   <% if @weather_data.present? %>
   <i class="fa-solid fa-temperature-half"></i>
   <h4> Current temperature is: <%= @weather_data['main']['temp'] %>°C</h4>
@@ -56,6 +56,13 @@
     <p>Weather information not available.</p>
   <% end %>
 </div>
+
+    <% if @bathing_site.reports.any? { |report| report.confirmation } %>
+      <%= render "reports/show", locals: { reports: @reports} %>
+    <% end %>
+
+  </div>
+
     <h2 class="text-center">. . .</h2>
 
   <div class="bottom-page">
@@ -74,22 +81,7 @@
             <% end %>
       </div>
       <div class="form-container">
-                <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <%= render "reports/new_report", locals: { report: @new_report, bathing_site: @bathing_site} %>
       </div>
   </div>
 </div>
