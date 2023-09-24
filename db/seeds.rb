@@ -54,7 +54,7 @@ data['result']['items'].each do |item|
     user: user
   )
 
-  p "Created #{site_name}, #{district} bathing site!"
+  p "Created #{site_name}, #{county_name} bathing site!"
 end
 
 #
