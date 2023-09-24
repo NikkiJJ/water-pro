@@ -146,6 +146,15 @@
   }
 }
 
+.weather-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  h4 {
+    margin-left: 20px;
+  }
+}
+
 .fav {
   display: flex;
   flex-direction: row;
