@@ -3,6 +3,7 @@
   <div class="container-fluid">
     <%= link_to "/#", class: "navbar-brand" do %>
       <%= "WATERPRO" %>
+      <i class="fa-solid fa-droplet fa-xl"></i>
 
     <% end %>
   <div class="search-bar">
@@ -39,18 +40,8 @@
         <% end %>
 
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <h4>     Hello <%= current_user.nickname.capitalize %> !</h4>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li>
+            <h4>Hello <%= current_user.nickname.capitalize %>!</h4>
           </li>
         <% end %>
       </ul>
