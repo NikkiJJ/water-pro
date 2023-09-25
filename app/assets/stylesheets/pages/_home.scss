@@ -1,9 +1,9 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: $body-font;
 }
 
 header {
-  color: $dark-blue;
+  color: black;
   padding: 20px;
 }
 
@@ -28,35 +28,42 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 .home-title {
 
   background-size: cover;
   background-position: center;
-  background-color: $light-blue;
-  color: $light-gray;
+  background-color: white;
+  color: black;
   text-align: center;
-  padding: 100px 0;
+  padding: 30px 0;
 }
 
-.home-content h2 {
+.home-content {
+  img {
+    height: 300px;
+    border-radius: 50%;
+  }
+  h2 {
   font-size: 36px;
   margin-bottom: 20px;
 }
+}
 
 .features {
-  background-color: $dark-blue;
+  background-color: $accent-medium;
+  color: $light-gray;
   border-top: solid;
   box-shadow: 10px 10px 5px rgb(45, 45, 45);
-  border-color: $yellow;
+  border-color: $primary-accent;
   display: flex;
-  justify-content: space-between;
-  height: 350px;
+  justify-content: center;
+  height: 300px;
 }
 
 .feature {
-  color: $light-gray;
+  color: black;
   flex: 1;
   text-align: center;
   padding: 50px;
@@ -65,4 +72,41 @@ nav {
 .feature h3 {
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+.typewriter {
+  text-align: center;
+  padding: 100px;
+}
+
+#text {
+  font-size: 25px;
+  color: black;
+  overflow: hidden; /* Hide overflowing text */
+  border-right: 1px solid black; /* Add a typewriter cursor */
+  white-space: nowrap; /* Keep the text in one line */
+  margin: 0 auto; /* Center the text */
+  letter-spacing: 4px; /* Adjust letter spacing for better typewriter effect */
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Keyframe animation for typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Keyframe animation for cursor blinking */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
 }
