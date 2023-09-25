@@ -1,19 +1,21 @@
 <div class="body">
+  <h2 class="text-center">Results matching your search criteria...</h2>
   <% if @bathing_sites.present? %>
     <div class="card-container">
       <br>
     </div>
-<div style="width: 100%; height: 500px;"
+<div class="map-container"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
     <div class="card-container">
       <% @bathing_sites.each do |bathing_site| %>
         <div class="card">
           <%= link_to bathing_site_path(bathing_site) do %>
             <div class="site-header">
-              <h1><%= bathing_site.site_name.capitalize %></h1>
+              <h2><%= bathing_site.site_name.capitalize %></h2>
             </div>
           <% end %>
             <div class="card-body">
@@ -23,10 +25,8 @@
                   <h5 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h5>
               <% end %>
               <div class="container-btn-options">
-                <%= render 'shared/buttons/back_button' %>
                 <%= render 'shared/buttons/see_more' %>
               </div>
-            <h1><%= @bathing_site.site_name %></h1>
             </div>
         </div>
       <% end %>
