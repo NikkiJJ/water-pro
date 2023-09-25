@@ -3,9 +3,14 @@
   justify-content: space-between;
   align-items: center; /* Vertically center align items */
   background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    h4 {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 }
 
-.navbar-lewagon .navbar-collapse { 
+.navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
@@ -19,4 +24,11 @@
   padding-right: 50px;
   padding-top: 7px;
   align-items: center;
+  padding-bottom: 10px;
 }
+
+.fa-droplet {
+  color: $primary-accent;
+  padding-left: 5px;
+}
+
