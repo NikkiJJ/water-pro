@@ -1,9 +1,9 @@
 <% if @favourite %>
   <%= link_to favourite_path(@favourite), data: { turbo_method: :delete, turbolinks: true } do %>
-    <i class="fas fa-heart"></i>
+    <i class="fas fa-heart fa-xl"></i>
   <% end %>
 <% else %>
   <%= link_to bathing_site_favourites_path(@bathing_site), data: { turbo_method: :post, turbolinks: true }, class: 'favorite-button' do %>
-    <i class="far fa-heart fa-lg"></i>
+    <i class="far fa-heart fa-xl"></i>
   <% end %>
 <% end %>

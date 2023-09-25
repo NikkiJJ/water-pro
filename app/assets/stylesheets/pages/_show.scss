@@ -73,11 +73,10 @@
 }
 
 .body {
-  background-color: $dark-blue;
-    h1 {
-      padding: 30px;
-      color: $light-gray;
-    }
+  background-color: white;
+  margin-top: 0;
+  padding-top: 0;
+  height: 100%;
 }
 
   h1 {
@@ -120,6 +119,14 @@
   color: $light-gray;
   display: flex;
   align-items: center;
+}
+
+.fa-check {
+  color: $primary-accent;
+}
+
+.fa-exclamation {
+  color: red;
 }
 
 .carousel-item {
@@ -166,6 +173,7 @@
 
 .review-card {
   width: 50%;
+  margin-bottom: 10px;
     h3 {
       padding: 40px 20px 20px 0;
       border-bottom: solid;
@@ -179,10 +187,20 @@
 }
 
 .form-container {
-  width: 20%;
+  width: 40%;
+  height: 70%;
   border-left-style: solid;
+  background-color: white;
   border-image-slice: 1;
+  margin-bottom: 40px;
   border-image-source: linear-gradient(to left, $primary-accent, $accent-medium);
+}
+
+.form-inner-container {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 500px;
+  width: 800px;
+  padding: 40px;
 }
 
 .each-review {
@@ -192,4 +210,9 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.header-section {
+  padding-top: 20px;
+  text-align: center;
 }
