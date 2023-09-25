@@ -1,5 +1,6 @@
 .button {
-  color: $dark-blue;
+  color: $light-gray;
+  background-color: $primary-accent;
   font-size: 16px;
   text-decoration: none;
   text-align: center;
@@ -11,10 +12,10 @@
   align-items: center;
   border: 2px  solid black;
   padding: 2px;
-  margin: 5px;
+  margin-top: 30px;
 
   &:hover {
-    background-color:$yellow;
+    background-color: $accent-medium;
   }
 }
 
@@ -26,4 +27,12 @@
   &:hover {
     background-color:$yellow;
   }
+}
+
+.fas.fa-heart {
+  color: $primary-accent;
+}
+
+.far.fa-heart {
+  color: $primary-accent;
 }
