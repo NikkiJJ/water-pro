@@ -2,10 +2,13 @@
 <div class="dashboard-body">
   <div class="profile-card">
     <h2>Your Profile</h2>
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg" alt="avatar">
+    <%= cl_image_tag @current_user.photo.key, height: 300, width: 400, crop: :fill %>
     <h4><%= @current_user.first_name.capitalize %> <%= @current_user.last_name.capitalize %></h4>
     <h4><%= @current_user.email %></h4>
-    <h4 class="button">Edit profile photo</h4>
+      <%= simple_form_for(current_user) do |f| %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "Upload photo" %>
+      <% end %>
   </div>
   <div class="fav-container">
     <div class="title">
