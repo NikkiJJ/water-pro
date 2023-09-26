@@ -4,15 +4,10 @@ class BathingSitesController < ApplicationController
   before_action :set_bathing_site, only: %i[show edit update destroy]
 
   def index
-<<<<<<< HEAD
-    @bathing_sites = if params[:query].present?
-      BathingSite.search_by_site_name(params[:query])
-=======
     @bathing_sites = policy_scope(BathingSite).all
 
     if params[:query].present?
       @bathing_sites = BathingSite.search_by_site_name_and_region(params[:query])
->>>>>>> master
     else
       policy_scope(BathingSite).all
     end
