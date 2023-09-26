@@ -81,13 +81,13 @@
               <h4><%= review.title %></h4>
               <p><%= review.body %></p>
               <p><%= review.date %></p>
-              <%= render "report_reviews/flag_review" %>
+              <%= render "report_reviews/flag_review", locals: { review: review.id } %>
             </div>
           <% end %>
         <% else %>
           <h2>No reviews available for <%= @bathing_site.site_name %></h2>
         <% end %>
-        <%= render 'shared/buttons/create_new_button' %>
+        <%= render 'shared/buttons/create_new_button'%>
       </div>
 
       <div class="form-container">
