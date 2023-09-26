@@ -16,6 +16,7 @@
           <%= link_to bathing_site_path(bathing_site) do %>
             <div class="site-header">
               <h2><%= bathing_site.site_name.capitalize %></h2>
+              <img src="<%= bathing_site.web_res_image_url %>" alt="Bathing Site Image">
             </div>
           <% end %>
             <div class="card-body">

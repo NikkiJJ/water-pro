@@ -16,11 +16,11 @@
     </div>
     <div class="card-container">
       <% @favourites.each do |f| %>
-        <div class="fav-card">
+        <div class="card">
           <% favourite = f.bathing_site %>
-            <h3><%= link_to bathing_site_path(favourite.id) do %></h3>
+            <h2><%= link_to bathing_site_path(favourite.id) do %></h2>
             <h3><%= favourite.site_name.capitalize %></h3>
-            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1796&q=80" alt="">
+            <img src="<%= bathing_site.web_res_image_url %>" alt="">
             <% if favourite.reports.any? %>
               <i class="fa-solid fa-triangle-exclamation"></i>
             <% end %>
