@@ -2,10 +2,13 @@
 <div class="dashboard-body">
   <div class="profile-card">
     <h2>Your Profile</h2>
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg" alt="avatar">
+    <%= cl_image_tag @current_user.photo.key, height: 300, width: 400, crop: :fill %>
     <h4><%= @current_user.first_name.capitalize %> <%= @current_user.last_name.capitalize %></h4>
     <h4><%= @current_user.email %></h4>
-    <h4 class="button">Edit profile photo</h4>
+      <%= simple_form_for(current_user) do |f| %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "Upload photo" %>
+      <% end %>
   </div>
   <div class="fav-container">
     <div class="title">
@@ -13,11 +16,11 @@
     </div>
     <div class="card-container">
       <% @favourites.each do |f| %>
-        <div class="fav-card">
+        <div class="card">
           <% favourite = f.bathing_site %>
-            <h3><%= link_to bathing_site_path(favourite.id) do %></h3>
+            <h2><%= link_to bathing_site_path(favourite.id) do %></h2>
             <h3><%= favourite.site_name.capitalize %></h3>
-            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1796&q=80" alt="">
+            <img src="<%= bathing_site.web_res_image_url %>" alt="">
             <% if favourite.reports.any? %>
               <i class="fa-solid fa-triangle-exclamation"></i>
             <% end %>
