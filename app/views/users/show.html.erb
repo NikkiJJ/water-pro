@@ -1,15 +1,29 @@
 <!-- users show page -->
 <div class="dashboard-body">
-  <div class="card-container">
-    <h1>Your Favourites</h1>
-    <% @favourites.each do |f| %>
-        <% favourite = f.bathing_site %>
-        <%= link_to bathing_site_path(favourite.id), class: "card" do %>
-          <%= favourite.site_name.capitalize %>
-        <% if favourite.reports.any? %>
-          <i class="fa-solid fa-triangle-exclamation"></i>
-        <% end %>
-        <% end %>
-    <% end  %>
+  <div class="profile-card">
+    <h2>Your Profile</h2>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg" alt="avatar">
+    <h4><%= @current_user.first_name.capitalize %> <%= @current_user.last_name.capitalize %></h4>
+    <h4><%= @current_user.email %></h4>
+    <h4 class="button">Edit profile photo</h4>
+  </div>
+  <div class="fav-container">
+    <div class="title">
+      <h1 class="text-center">Your Favourites</h1>
+    </div>
+    <div class="card-container">
+      <% @favourites.each do |f| %>
+        <div class="fav-card">
+          <% favourite = f.bathing_site %>
+            <h3><%= link_to bathing_site_path(favourite.id) do %></h3>
+            <h3><%= favourite.site_name.capitalize %></h3>
+            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1796&q=80" alt="">
+            <% if favourite.reports.any? %>
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            <% end %>
+          <% end %>
+        </div>
+      <% end  %>
+    </div>
   </div>
 </div>

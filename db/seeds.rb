@@ -46,12 +46,15 @@ data['result']['items'].each do |item|
   county_name = item['district'].first['label'].first['_value']
   eubwid = item['eubwidNotation']
 
+  web_res_image_url = "https://environment.data.gov.uk/media/image/bathing-water-profile/#{eubwid}_1-webres.jpg"
+
   BathingSite.create!(
     site_name: site_name,
     region: county_name,
     eubwid: eubwid,
     water_quality: "good",
-    user: user
+    user: user,
+    web_res_image_url: web_res_image_url
   )
 
   p "Created #{site_name}, #{county_name} bathing site!"
