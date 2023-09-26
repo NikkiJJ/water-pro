@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :favourites, only: [:create]
     resources :reports, only: [:new, :create]
   end
+  resources :report_reviews, only: [ :new, :create ]
 
   resources :favourites, only: [:destroy]
 

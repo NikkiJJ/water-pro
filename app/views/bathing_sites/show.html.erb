@@ -76,7 +76,11 @@
                       <h4><%= review.title %></h4>
                       <p><%= review.body %></p>
                       <p><%= review.date %></p>
-                    </div>
+                      <%= link_to new_report_review_path, method: :get do %>
+                        <div>
+                          <i class="fa-solid fa-flag"></i>
+                        </div>
+                      <% end %>
                     <% end %>
               <% else %>
                 <h2>No reviews available for <%= @bathing_site.site_name %></h2>
