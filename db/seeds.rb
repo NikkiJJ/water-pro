@@ -9,43 +9,117 @@
 
 # Load Rails application environment
 
-require_relative '../config/environment'
+# require_relative '../config/environment'
 
-require 'nokogiri'
-require 'open-uri'
+# require 'nokogiri'
+# require 'open-uri'
+# require 'httparty'
+# require 'json'
+# require 'csv'
+
+# BathingSite.destroy_all
+# User.destroy_all
+
+# user = User.create!(
+#   email: "user1@gmail.com",
+#   password: "123456",
+#   first_name:"John",
+#   last_name:"Smith",
+#   nickname: "jonny"
+# )
+
+# csv_path = Rails.root.join('app', 'data', 'site.csv')
+
+# CSV.foreach(csv_path, headers: true) do |row|
+#   eubwid = row['EUBWID']
+
+#    base_url = 'https://environment.data.gov.uk/id/bathing-water/'
+#    api_url = "#{base_url}#{eubwid}.json".freeze
+
+#   response = HTTParty.get(api_url)
+#   data = response.parsed_response
+#   quality = data['result']['primaryTopic']
+#   water_quality = quality['latestComplianceAssessment']['complianceClassification']['name']['_value']
+#   site_name = data['result']['primaryTopic']['name']['_value']
+
+#   BathingSite.create!(
+#     site_name: site_name,
+#     water_quality: water_quality,
+#     user: user
+#   )
+# p "Created #{site_name} bathing site!"
+# end
+
+# !/usr/bin/env ruby
+# Load Rails application environment
+require_relative '../config/environment'
 require 'httparty'
 require 'json'
-require 'csv'
-
+require 'bathing_site'
 BathingSite.destroy_all
 User.destroy_all
-
 user = User.create!(
   email: "user1@gmail.com",
   password: "123456",
-  first_name:"John",
-  last_name:"Smith",
+  first_name: "John",
+  last_name: "Smith",
   nickname: "jonny"
 )
+# admin = User.create(
+#   email: "admin@admin.com",
+#   password: "123456",
+#   first_name: "Admin",
+#   last_name: "User",
+#   nickname: "Admin",
+#   admin: true
+# )
+api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=55&_view=all&_pageSize=55'
+response = HTTParty.get(api_endpoint)
+data = JSON.parse(response.body)
+data['result']['items'].each do |item|
+  site_name = item['label'].first['_value']
+  county_name = item['district'].first['label'].first['_value']
+  eubwid = item['eubwidNotation']
 
-csv_path = Rails.root.join('app', 'data', 'site.csv')
-
-CSV.foreach(csv_path, headers: true) do |row|
-  eubwid = row['EUBWID']
-
-   base_url = 'https://environment.data.gov.uk/id/bathing-water/'
-   api_url = "#{base_url}#{eubwid}.json".freeze
+  base_url = 'https://environment.data.gov.uk/id/bathing-water/'
+  api_url = "#{base_url}#{eubwid}.json".freeze
 
   response = HTTParty.get(api_url)
-  data = response.parsed_response
-  quality = data['result']['primaryTopic']
-  water_quality = quality['latestComplianceAssessment']['complianceClassification']['name']['_value']
-  site_name = data['result']['primaryTopic']['name']['_value']
+  data2 = response.parsed_response
+  quality = data2['result']['primaryTopic']
+  if quality.present?
+    compliance_assessment = quality['latestComplianceAssessment']
+    if compliance_assessment.present?
+      classification = compliance_assessment['complianceClassification']
+      if classification.present?
+        water_quality = classification['name']['_value']
+      else
+        water_quality = "Unknown"
+      end
+    end
+  end
 
   BathingSite.create!(
     site_name: site_name,
+    region: county_name,
+    # eubwid: eubwid,
     water_quality: water_quality,
     user: user
   )
-p "Created #{site_name} bathing site!"
+  p "Created #{site_name}, #{county_name} bathing site!"
 end
+#
+# previous api
+# csv_path = Rails.root.join('app', 'data', 'site.csv')
+# CSV.foreach(csv_path, headers: true) do |row|
+#  eubwid = row['EUBWID']
+# base_url = 'https://environment.data.gov.uk/id/bathing-water/'
+# api_url = "#{base_url}#{eubwid}.json".freeze
+ # response = HTTParty.get(api_url)
+ # data = response.parsed_response
+ # quality = data['result']['primaryTopic']
+ # water_quality = quality['latestComplianceAssessment']['complianceClassification']['name']['_value']
+ # site_name = data['result']['primaryTopic']['name']['_value']
+ # latitude = data['result']['primaryTopic']['samplingPoint']['lat']
+ # longitude = data['result']['primaryTopic']['samplingPoint']['long']
+ # district = data['result']['primaryTopic']['district'][0]['name']['_value']
