@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_24_113900) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude" 
+    t.float "latitude"
     t.float "longitude"
     t.string "eubwid"
     t.string "web_res_image_url"
