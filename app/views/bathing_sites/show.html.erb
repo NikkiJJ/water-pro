@@ -81,11 +81,11 @@
               <h4><%= review.title %></h4>
               <p><%= review.body %></p>
               <p><%= review.date %></p>
-              <%= render "report_reviews/flag_review", locals: { review: review.id } %>
+              <%= render "report_reviews/flag_review", review: review %>
             </div>
           <% end %>
         <% else %>
-          <h2>No reviews available for <%= @bathing_site.site_name %></h2>
+          <h2>No reviews available for <%=     @bathing_site.site_name %></h2>
         <% end %>
         <%= render 'shared/buttons/create_new_button'%>
       </div>

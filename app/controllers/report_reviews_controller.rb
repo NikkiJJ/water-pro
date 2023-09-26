@@ -1,7 +1,8 @@
 class ReportReviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :new ]
   def new
     @report_review = ReportReview.new
+    @review = Review.find(params[:review_id])
+    authorize @report_review
   end
 
   def create
@@ -10,16 +11,17 @@ class ReportReviewsController < ApplicationController
 
     authorize @report_review
 
-    if @report_review.save
-      redirect_to report_confirmation_page_path(@report_review)
-    else
-      render :new
-    end
+    @report_review.save
+    # if @report_review.save
+    #   redirect_to report_confirmation_page_path(@report_review)
+    # else
+    #   render :new
+    # end
   end
 
   private
 
   def report_reviews_params
-    params.require(:report_review).permit(:issue, :comment)  # Changed from :report_reviews
+    params.require(:report_review).permit(:issue, :comment)
   end
 end

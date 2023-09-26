@@ -1,6 +1,8 @@
 <h1>Report a Review</h1>
 
-<%= simple_form_for [@report_review, @review] do |f|%>
+<%= simple_form_for [@review, @report_review] do |f|%>
+  <% f.hidden_field :review_id, value: params[:review_id] %>
+
   <% f.label :issue %>
   <%= f.input :issue, as: :select, collection: (['Inappropriate', 'Language', 'Irrelevant', 'Other']) %>
 
