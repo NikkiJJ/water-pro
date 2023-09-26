@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_145539) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_24_113900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,8 +22,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_145539) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
+    t.float "latitude" 
     t.float "longitude"
+    t.string "eubwid"
+    t.string "web_res_image_url"
     t.index ["user_id"], name: "index_bathing_sites_on_user_id"
   end
 
@@ -45,12 +47,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_145539) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
+  create_table "report_reviews", force: :cascade do |t|
+    t.bigint "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_report_reviews_on_review_id"
+  end
+
   create_table "reports", force: :cascade do |t|
     t.bigint "bathing_site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "issue"
     t.text "comment"
+    t.boolean "confirmation", default: false
     t.index ["bathing_site_id"], name: "index_reports_on_bathing_site_id"
   end
 
@@ -78,6 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_145539) do
     t.string "first_name"
     t.string "last_name"
     t.string "nickname"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -85,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_145539) do
   add_foreign_key "bathing_sites", "users"
   add_foreign_key "favourites", "bathing_sites"
   add_foreign_key "favourites", "users"
+  add_foreign_key "report_reviews", "reviews"
   add_foreign_key "reports", "bathing_sites"
   add_foreign_key "reviews", "bathing_sites"
   add_foreign_key "reviews", "users"

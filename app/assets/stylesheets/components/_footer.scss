@@ -1,17 +1,21 @@
 .footer {
   display: flex;
-  background-color: $footer-yellow;
+  background-color: white;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
   margin-top: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .footer-item {
   flex-basis: calc(33.33% - 20px);
   margin-right: 10px;
   text-align: center;
+  a {
+    color: black;
+  }
 }
 
 .footer-item:last-child {

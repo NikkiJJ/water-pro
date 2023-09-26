@@ -1,10 +1,18 @@
+require 'httparty'
 class BathingSitesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_bathing_site, only: %i[show edit update destroy]
 
   def index
+<<<<<<< HEAD
     @bathing_sites = if params[:query].present?
       BathingSite.search_by_site_name(params[:query])
+=======
+    @bathing_sites = policy_scope(BathingSite).all
+
+    if params[:query].present?
+      @bathing_sites = BathingSite.search_by_site_name_and_region(params[:query])
+>>>>>>> master
     else
       policy_scope(BathingSite).all
     end
@@ -21,6 +29,11 @@ class BathingSitesController < ApplicationController
   def show
     authorize @bathing_site
     @favourite = Favourite.find_by(user: current_user, bathing_site: @bathing_site)
+    @reviews = @bathing_site.reviews.all
+
+    @weather_data = retrieve_weather_data(@bathing_site.latitude, @bathing_site.longitude)
+    @new_report = Report.new(bathing_site: @bathing_site)
+    @reports = @bathing_site.reports
   end
 
   def new
@@ -55,6 +68,17 @@ class BathingSitesController < ApplicationController
     @bathing_site.destroy
 
     redirect_to bathing_sites_path(@bathing_sites)
+  end
+
+  def retrieve_weather_data(latitude, longitude)
+    api_key = ENV['WEATHER_API']
+    url = "https://api.openweathermap.org/data/2.5/weather?lat=#{latitude}&lon=#{longitude}&appid=#{api_key}&units=metric"
+
+    response = HTTParty.get(url)
+    if response.code == 200
+      weather_data = JSON.parse(response.body)
+      weather_data
+    end
   end
 
   private
