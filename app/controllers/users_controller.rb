@@ -5,4 +5,8 @@ class UsersController < ApplicationController
     @favourites = @user.favourites.includes(:bathing_site)
     authorize @user
   end
+
+  def user_params
+    params.require(:user).permit(:photo)
+  end
 end
