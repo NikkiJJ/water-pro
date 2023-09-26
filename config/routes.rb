@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :bathing_sites do
-    resources :reviews
+    resources :reviews, only: [ :new, :create]
     resources :favourites, only: [:create]
     resources :reports, only: [:new, :create]
+  end
+
+  resources :reviews, except: [:new, :create] do
+    resources :report_reviews, only: [ :new, :create ]
   end
 
   resources :favourites, only: [:destroy]
