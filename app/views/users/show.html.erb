@@ -1,9 +1,14 @@
+<!-- users show page -->
 <div class="dashboard-body">
   <div class="card-container">
     <h1>Your Favourites</h1>
     <% @favourites.each do |f| %>
-        <%= link_to bathing_site_path(f.bathing_site.id), class: "card" do %>
-          <%= f.bathing_site.site_name.capitalize %>
+        <% favourite = f.bathing_site %>
+        <%= link_to bathing_site_path(favourite.id), class: "card" do %>
+          <%= favourite.site_name.capitalize %>
+        <% if favourite.reports.any? %>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        <% end %>
         <% end %>
     <% end  %>
   </div>
