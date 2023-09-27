@@ -21,4 +21,8 @@ class ReportReviewPolicy < ApplicationPolicy
   def destroy?
     user.admin? ? true : false
   end
+
+  def confirmation?
+    true
+  end
 end

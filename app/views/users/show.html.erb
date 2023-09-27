@@ -20,7 +20,6 @@
           <% favourite = f.bathing_site %>
             <h2><%= link_to bathing_site_path(favourite.id) do %></h2>
             <h3><%= favourite.site_name.capitalize %></h3>
-            <img src="<%= bathing_site.web_res_image_url %>" alt="">
             <% if favourite.reports.any? %>
               <i class="fa-solid fa-triangle-exclamation"></i>
             <% end %>
