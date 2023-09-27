@@ -22,9 +22,6 @@
   <h1>Reported Reviews</h1>
   <% @report_reviews.each do |r| %>
     <div>
-      <%= link_to bathing_site_path(r.review.bathing_site.id) do %>
-      <%= r.review.bathing_site.site_name %>
-      <% end %>
       <%= r.issue %>
       <%= r.comment %>
 
