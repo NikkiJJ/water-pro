@@ -13,4 +13,8 @@ class UserPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def admin_dashboard?
+    user.admin? ? true : false
+  end
 end

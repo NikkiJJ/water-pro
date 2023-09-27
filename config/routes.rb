@@ -19,7 +19,11 @@ Rails.application.routes.draw do
 
   resources :pages
 
-  resources :users
+  resources :users do
+    member do
+      get 'admin_dashboard', to: 'users#admin_dashboard', as: :admin_dashboard
+    end
+  end
 
   resources :reports, only: [:show, :index, :update, :destroy ] do
     member do
