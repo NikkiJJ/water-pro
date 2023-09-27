@@ -6,6 +6,15 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def admin_dashboard
+    @user = User.find(params[:id])
+    @report_reviews = policy_scope(ReportReview).all
+    @reports = policy_scope(Report).all
+    @report_review = ReportReview.find(:report_review)
+    @review = @report_review.review
+    authorize @user
+  end
+
   private
 
   def user_params

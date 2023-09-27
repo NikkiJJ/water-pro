@@ -45,6 +45,12 @@ class ReviewsController < ApplicationController
     redirect_to bathing_site_reviews_path(@bathing_site)
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    authorize @review
+    @review.destroy
+  end
+
   private
 
   def review_params

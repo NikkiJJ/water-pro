@@ -1,0 +1,37 @@
+<div class="d-flex">
+  <div><h1>Reported Beaches</h1>
+
+  <% @reports.each do |report| %>
+    <div>
+      <%= link_to bathing_site_path(report.bathing_site.id) do %>
+      <%= report.bathing_site.site_name %>
+      <% end %>
+      <%= report.issue %>
+      <%= report.comment %>
+
+      <%= simple_form_for report, method: :patch do |f| %>
+        <%= f.button :submit, 'Confirm' %>
+      <% end %>
+
+      <%= button_to "Dismiss", report, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
+
+</div>
+<div>
+  <h1>Reported Reviews</h1>
+  <% @report_reviews.each do |r| %>
+    <div>
+      <%= r.issue %>
+      <%= r.comment %>
+
+      <%= simple_form_for r, method: :patch do |f| %>
+
+        <%= button_to "Delete Review", review_path(r.review), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= button_to "Dismiss", r, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+</div>

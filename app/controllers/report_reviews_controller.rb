@@ -22,6 +22,12 @@ class ReportReviewsController < ApplicationController
     authorize @report_review
   end
 
+  def destroy
+    @report_review = ReportReview.find(params[:id])
+    authourize @report_review
+    @report_review.destroy
+  end
+
   private
 
   def report_reviews_params
