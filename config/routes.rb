@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     resources :report_reviews, only: [ :new, :create ]
   end
 
+  resources :report_reviews, only: [ :show, :destroy ]
+
   resources :favourites, only: [:destroy]
+
+  get '/report_reviews/:id/confirmation', to: 'report_reviews#confirmation', as: :confirmed_review
 
   resources :pages
 
