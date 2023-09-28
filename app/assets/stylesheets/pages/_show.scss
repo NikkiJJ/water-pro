@@ -1,44 +1,12 @@
-.icons {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 20px;
-  padding-left: 50px;
-
-  a {
-    padding: 10px;
-    text-decoration: none;
-  }
-}
-
-.img-icon {
-  display: flex;
-  flex-direction: column;
-}
-
-.button-center {
-  display: flex;
-  align-items: center;
-  margin-top: 50px;
-}
-
-.info-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-
-  h3 {
-    color: black;
-  }
-}
-
 .body {
-  background-color: white;
+  background-color: #f2f7fb;
   margin-top: 0;
   padding-top: 0;
   height: 100%;
-    h2 {
+    h3 {
       padding-top: 30px;
+      font-weight: bold;
+      color: $primary-accent;
     }
 }
 
@@ -48,54 +16,58 @@
     color: black;
   }
 
-.map-container {
-  width: 100%;
-  height: 500px;
+.top-section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background-image: url('Screenshot\ 2023-09-19\ at\ 13.12.56.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px;
-  border: 2px solid #ffffff;
-  box-shadow: 0px 0px 10px 9px rgba(222, 214, 214, 0.2);
+  justify-content: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.carousel-item {
+  img {
+    height: 300px;
+    width: 100%;
+  }
+}
+
+#carouselExampleControls {
+  width: 65%;
+}
+
+.site-info {
+  padding-left: 17%;
+  padding-right: 17%;
 }
 
 .fa-triangle-exclamation {
   color: red;
 }
 
-// .fa-circle-check {
-//   color: rgb(38, 255, 38);
-// }
-
-// .show-card {
-//   width: 60%;
-//   margin-left: 400px;
-//   margin-bottom: 60px;
-//   padding-left: 20px;
-//   border: 2px solid $yellow;
-//   border-radius: 20px;
-//   background-color: $light-blue;
-//   box-shadow: 10px 10px 5px rgba(45, 45, 45, 0.2);
-//   color: $light-gray;
-//   display: flex;
-//   align-items: center;
-// }
-
 .fa-check {
   color: $primary-accent;
+  margin-right: 10px;
 }
 
 .fa-exclamation {
   color: red;
+  margin-right: 10px;
 }
 
-.carousel-item {
-  img {
-    height: 400px;
-  }
+.fa-map-marker-alt {
+  color: $primary-accent;
+  margin-right: 10px;
+}
+
+.fa-rainbow{
+  color: $primary-accent;
+  margin-right: 10px;
+}
+
+.fa-droplet {
+  color: $primary-accent;
+  margin-right: 10px;
 }
 
 .water-item {
@@ -134,19 +106,20 @@
   }
 }
 
+.bottom-page {
+  display: flex;
+}
+
 .review-card {
   width: 50%;
   margin-bottom: 10px;
-    h3 {
+  padding-left: 5%;
+    h4 {
       padding: 40px 20px 20px 0;
       border-bottom: solid;
       border-image-slice: 1;
       border-image-source: linear-gradient(to left, $primary-accent, $accent-medium);
     }
-}
-
-.bottom-page {
-  display: flex;
 }
 
 .form-container {
@@ -162,7 +135,7 @@
 .form-inner-container {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 500px;
-  width: 800px;
+  width: 500px;
   padding: 40px;
   background-color: white;
 }
@@ -179,4 +152,20 @@
 .header-section {
   padding-top: 20px;
   text-align: center;
+}
+
+.first-half {
+  background-color: white;
+  padding: 0 40px 40px 40px;
+  margin: 40px 40px 40px 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.second-half {
+  background-color: white;
+  margin: 40px 40px 0 40px;
+  padding: 40px 40px 0 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
 }
