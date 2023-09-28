@@ -1,18 +1,19 @@
 .button {
-  color: $light-gray;
-  background-color: $primary-accent;
+  color: $primary-accent;
+  background-color: $accent-light;
   font-size: 16px;
   text-decoration: none;
   text-align: center;
-  border-radius: 20px 20px 20px 20px;
-  width: 145px;
-  height: 45px;
+  border-radius: 7.5px;
+  width: 120px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px  solid black;
-  padding: 2px;
+  border: 1px  solid $primary-accent;
+  padding: 5px;
   margin-top: 30px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 
   &:hover {
     background-color: $accent-medium;
@@ -36,4 +37,3 @@
 .far.fa-heart {
   color: $primary-accent;
 }
-
