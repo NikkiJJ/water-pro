@@ -5,8 +5,9 @@
         <div class="header-section">
           <h3><%= @bathing_site.site_name.capitalize %></h3>
           <h6><%= @bathing_site.region %> . <%= @reviews.count %> reviews . <%= @reports.count %> reports</h6>
+        <br>
+        <%= @bathing_site.site_info %>
         </div>
-
         <div id="carouselExampleControls" class="carousel slide my-4" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
