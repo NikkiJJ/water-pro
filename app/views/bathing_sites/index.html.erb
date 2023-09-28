@@ -27,7 +27,8 @@
                   <h5 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h5>
               <% end %>
               <div class="container-btn-options">
-                <%= render 'shared/buttons/see_more' %>
+               <%= render 'shared/buttons/see_more', bathing_site: bathing_site %>
+
               </div>
             </div>
         </div>
