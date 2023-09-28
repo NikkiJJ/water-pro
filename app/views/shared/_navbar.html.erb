@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <%= link_to "/#", class: "navbar-brand" do %>
       <%= "WATERPRO" %>
-      <i class="fa-solid fa-droplet fa-xl"></i>
+      <i class="fa-solid fa-droplet fa-lg"></i>
 
     <% end %>
   <div class="search-bar">
@@ -21,9 +21,15 @@
       <ul class="navbar-nav me-auto">
         <!-- Displaying the avatar icon always -->
         <li class="nav-item dropdown">
+          <% if current_user.photo.attached? %>
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa-regular fa-user" style="color: dark-blue;"></i>
-            </a>
+          <%= cl_image_tag current_user.photo.key, height: 50, width: 50, crop: :fill%>
+          </a>
+          <% else %>
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa-regular fa-user" style="color: dark-blue;"></i>
+          </a>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
               <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
@@ -41,7 +47,7 @@
 
         <% if user_signed_in? %>
           <li>
-            <h4>Hello <%= current_user.nickname.capitalize %>!</h4>
+            <h6>Hello <%= current_user.nickname.capitalize %>!</h6>
           </li>
         <% end %>
       </ul>
