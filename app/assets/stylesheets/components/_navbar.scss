@@ -1,12 +1,14 @@
 .navbar-lewagon {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Vertically center align items */
+  align-items: center;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
     h4 {
       margin-bottom: 0;
       padding-bottom: 0;
+      margin-top: 15px;
+      padding-left: 15px;
     }
 }
 
@@ -41,7 +43,7 @@ nav {
 
 .logo h1 {
   font-size: 24px;
-} 
+}
 
 .nav-links {
   list-style: none;

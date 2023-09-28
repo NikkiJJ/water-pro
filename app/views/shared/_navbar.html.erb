@@ -22,8 +22,10 @@
         <!-- Displaying the avatar icon always -->
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= cl_image_tag current_user.photo.key, height: 50, width: 50, crop: :fill%>
+          <a href="#" class="avatar-large" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="avatar-large">
+              <%= cl_image_tag current_user.photo.key, height: 50, width: 50, crop: :fill%>
+            </div>
           </a>
           <% else %>
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
