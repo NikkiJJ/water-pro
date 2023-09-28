@@ -17,21 +17,26 @@
     </div>
   <% end %>
 
-</div>
-<div>
-  <h1>Reported Reviews</h1>
-  <% @report_reviews.each do |r| %>
-    <div>
-      <%= r.issue %>
-      <%= r.comment %>
+  </div>
+  <div>
+    <h1>Reported Reviews</h1>
+    <% @report_reviews.each do |r| %>
+      <div>
+        <%= r.review.title %>
+        <%= r.review.body %>
+        <%= r.issue %>
+        <%= r.comment %>
 
-      <%= simple_form_for r, method: :patch do |f| %>
-
-        <%= button_to "Delete Review", review_path(r.review), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= button_to "Dismiss", r, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+        <%# r has the report_review - r.id should be used in the user controller %>
+        <%= button_to "Delete Review", review_path(r.review_id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= button_to "Dismiss", report_review_path(r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
 
 </div>
+<%# will copmlete the admin dashboard - complete the users controller. need to associate the @report_review with review to %>
+<%# identify which review to delete for Delete Review button %>
+<%# haven't tested functionality of the button as error keeps coming up %>
+<%# complete the buttons on this page - looks like you need to find out how to call the instances in the user controller %>
+<%# !! FOCUS ON USER CONTROLLER !! %>
