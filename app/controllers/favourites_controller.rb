@@ -24,6 +24,19 @@ class FavouritesController < ApplicationController
     redirect_back_or_to "/"
   end
 
+  def update
+    if current_user.signed_in?
+      @favourite = Favourite.where(bathing_site: BathingSite.find(params[:bathing_site]), user: current_user)
+      if @favourite == []
+        Favourite.create(bathing_site: BathingSite.find(params[:bathing_site]), user: current_user)
+      else
+
+      end
+    else
+      link_to "Login", new_user_session_path
+    end
+  end
+
   private
 
   def farvourite_params

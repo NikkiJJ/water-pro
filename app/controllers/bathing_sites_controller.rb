@@ -1,6 +1,6 @@
 require 'httparty'
 class BathingSitesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_bathing_site, only: %i[show edit update destroy]
 
   def index
