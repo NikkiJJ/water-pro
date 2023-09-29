@@ -27,7 +27,6 @@
         <%= r.issue %>
         <%= r.comment %>
 
-        <%# r has the report_review - r.id should be used in the user controller %>
         <%= button_to "Delete Review", review_path(r.review_id), method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= button_to "Dismiss", report_review_path(r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
@@ -35,8 +34,3 @@
   </div>
 
 </div>
-<%# will copmlete the admin dashboard - complete the users controller. need to associate the @report_review with review to %>
-<%# identify which review to delete for Delete Review button %>
-<%# haven't tested functionality of the button as error keeps coming up %>
-<%# complete the buttons on this page - looks like you need to find out how to call the instances in the user controller %>
-<%# !! FOCUS ON USER CONTROLLER !! %>
