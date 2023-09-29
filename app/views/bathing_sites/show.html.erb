@@ -35,6 +35,8 @@
         <div class="fav">
           <%= render "shared/buttons/get_directions_button" %>
           <%= render "shared/buttons/favourite_button" %>
+         <%= social_share_button_tag(@bathing_site, :allow_sites => %w(twitter facebook whatsapp_app)) %>
+
         </div>
 
         <% if @bathing_site.water_quality == "closed" %>
