@@ -49,6 +49,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     authorize @review
     @review.destroy
+    redirect_to admin_dashboard_user_path
   end
 
   private

@@ -7,7 +7,8 @@ class ReportReviewsController < ApplicationController
 
   def create
     @report_review = ReportReview.new(report_reviews_params)
-    @report_review.review = Review.find(params[:review_id])
+    @review = Review.find(params[:review_id])
+    @report_review.review = @review
     authorize @report_review
 
     if @report_review.save
@@ -23,9 +24,11 @@ class ReportReviewsController < ApplicationController
   end
 
   def destroy
+    # for the "Dismiss" button - to delete the report of the review
     @report_review = ReportReview.find(params[:id])
-    authourize @report_review
+    authorize @report_review
     @report_review.destroy
+    redirect_to admin_dashboard_user_path
   end
 
   private
