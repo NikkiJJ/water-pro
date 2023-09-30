@@ -23,7 +23,9 @@ user = User.create!(
    nickname: "Admin",
    admin: true
  )
+
 api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=700&_view=all&_pageSize=700'
+
 response = HTTParty.get(api_endpoint)
 data = JSON.parse(response.body)
 data['result']['items'].each do |item|
