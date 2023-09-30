@@ -31,7 +31,6 @@ data['result']['items'].each do |item|
   county_name = item['district'].first['label'].first['_value']
   eubwid = item['eubwidNotation']
 
-
   base_url = 'https://environment.data.gov.uk/id/bathing-water/'
   api_url = "#{base_url}#{eubwid}.json".freeze
 

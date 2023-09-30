@@ -6,7 +6,7 @@ class BathingSite < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :reports, dependent: :destroy
 
-  geocoded_by :site_name
+  geocoded_by :full_site_name
   after_validation :geocode, if: :will_save_change_to_site_name?
   include PgSearch::Model
 
@@ -16,4 +16,8 @@ class BathingSite < ApplicationRecord
   }, using: {
     tsearch: { prefix: true }
   }
+
+  def full_site_name
+    "#{site_name}, #{region}"
+  end
 end
