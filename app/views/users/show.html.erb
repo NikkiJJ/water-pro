@@ -19,7 +19,7 @@
     </div>
     <div class="card-container">
       <% @favourites.each do |f| %>
-        <div class="fav-card">
+        <div>
           <% favourite = f.bathing_site %>
             <h2><%= link_to bathing_site_path(favourite.id) do %></h2>
             <h3><%= favourite.site_name.capitalize %></h3>
