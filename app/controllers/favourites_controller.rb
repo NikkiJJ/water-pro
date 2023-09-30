@@ -30,8 +30,9 @@ class FavouritesController < ApplicationController
       if @favourite == []
         Favourite.create(bathing_site: BathingSite.find(params[:bathing_site]), user: current_user)
       else
-
+        @favourite.destroy.all
       end
+
     else
       link_to "Login", new_user_session_path
     end
