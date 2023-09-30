@@ -6,8 +6,8 @@ class BathingSite < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :reports, dependent: :destroy
 
-  geocoded_by :region
-  after_validation :geocode, if: :will_save_change_to_region?
+  geocoded_by :site_name
+  after_validation :geocode, if: :will_save_change_to_site_name?
   include PgSearch::Model
 
   pg_search_scope :search_by_site_name_and_region, against: {
