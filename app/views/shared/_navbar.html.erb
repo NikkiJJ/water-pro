@@ -2,8 +2,7 @@
 
   <div class="container-fluid">
     <%= link_to "/#", class: "navbar-brand" do %>
-      <%= "WATERPRO" %>
-      <i class="fa-solid fa-droplet fa-lg"></i>
+      <i class="fa-solid fa-droplet">WATERPRO</i>
 
     <% end %>
   <div class="search-bar">
@@ -21,11 +20,9 @@
       <ul class="navbar-nav me-auto">
         <!-- Displaying the avatar icon always -->
         <li class="nav-item dropdown">
-             <% if current_user.photo.attached? %>
-                <a href="#" class="avatar-large" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <div class="avatar-large">
-                    <%= cl_image_tag current_user.photo.key, height: 50, width: 50, crop: :fill%>
-                  </div>
+             <% if current_user && current_user.photo.attached?%>
+                <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= cl_image_tag current_user.photo.key, height: 50, width: 50, class: "avatar-large", crop: :fill%>
                 </a>
                 <% else %>
                 <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

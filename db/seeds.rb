@@ -23,14 +23,19 @@ user = User.create!(
    nickname: "Admin",
    admin: true
  )
+<<<<<<< HEAD
 api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=800&_view=all&_pageSize=800'
+=======
+
+api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=700&_view=all&_pageSize=700'
+
+>>>>>>> master
 response = HTTParty.get(api_endpoint)
 data = JSON.parse(response.body)
 data['result']['items'].each do |item|
   site_name = item['label'].first['_value']
   county_name = item['district'].first['label'].first['_value']
   eubwid = item['eubwidNotation']
-
 
   base_url = 'https://environment.data.gov.uk/id/bathing-water/'
   api_url = "#{base_url}#{eubwid}.json".freeze
