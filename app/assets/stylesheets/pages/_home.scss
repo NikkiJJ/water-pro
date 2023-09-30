@@ -5,6 +5,13 @@ body {
   min-height: 100vh;
 }
 
+.home-content {
+  padding-top: 50px;
+    i {
+      padding-bottom: 50px;
+    }
+}
+
 header {
   color: black;
   padding: 20px;
@@ -48,7 +55,8 @@ header {
 }
 
 #text {
-  font-size: 25px;
+  font-size: 18px;
+  font-weight: bold;
   color: black;
   overflow: hidden; /* Hide overflowing text */
   border-right: 1px solid black; /* Add a typewriter cursor */
