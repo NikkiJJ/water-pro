@@ -9,6 +9,7 @@
 }
 
 .profile-card {
+  background-color: $accent-medium;
   width: 40%;
     img {
       border-radius: 50%;
@@ -19,6 +20,8 @@
     h2 {
       padding-top: 60px;
       padding-bottom: 30px;
+      color: $primary-accent;
+      font-weight: bolder;
     }
 }
 
@@ -36,32 +39,45 @@
   align-items: row;
 }
 
-// .fav-card {
-//   display: flex;
-//   justify-content: space-between;
-//   justify-content: center;
-//   background-color: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   height: 300px;
-//   width: 300px;
-//   padding: 15px;
-//   margin: 10px;
-//     h3 {
-//       padding: 10px;
-//       text-decoration: none;
-//       color: inherit;
-//     }
-//     img {
-//       height: 60%;
-//       padding: 10px;
-//     }
-// }
+.fav-card {
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 300px;
+  width: 300px;
+  padding: 15px;
+  margin: 10px;
+    h3 {
+      padding: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      height: 60%;
+      padding: 10px;
+    }
+}
 
 .title {
   h1 {
     size: 65px;
     padding: 15px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    color: $primary-accent;
 }
+}
+
+.custom-file-input {
+  border-radius: 20px;
+  width: 60%;
+  margin-left: 20%;
+  border-color: $primary-accent !important;
+}
+
+.profile-image {
+  box-shadow: 0px 0px 10px 9px rgba(33, 33, 33, 0.2);
 }

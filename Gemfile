@@ -55,7 +55,7 @@ gem "cloudinary"
 
 gem 'faker'
 gem 'pg_search'
-
+gem 'social-share-button'
 gem 'httparty'
 gem "geocoder"
 gem "pundit"

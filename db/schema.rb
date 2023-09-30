@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_26_143006) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_28_173115) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_26_143006) do
     t.float "longitude"
     t.string "eubwid"
     t.string "web_res_image_url"
+    t.string "site_info"
     t.index ["user_id"], name: "index_bathing_sites_on_user_id"
   end
 
@@ -79,6 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_26_143006) do
     t.bigint "review_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "issue"
+    t.text "comment"
     t.index ["review_id"], name: "index_report_reviews_on_review_id"
   end
 
