@@ -2,12 +2,15 @@
 <div class="dashboard-body">
   <div class="profile-card">
     <h2>Your Profile</h2>
-    <%= cl_image_tag @current_user.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @current_user.photo.key, height: 400, width: 400, crop: :fill, class: "profile-image" %>
     <h4><%= @current_user.first_name.capitalize %> <%= @current_user.last_name.capitalize %></h4>
     <h4><%= @current_user.email %></h4>
-      <%= simple_form_for(current_user) do |f| %>
-      <%= f.input :photo, as: :file %>
-      <%= f.button :submit, "Upload photo" %>
+      <%= simple_form_for(@user) do |f| %>
+      <%= f.input :photo, as: :file, input_html: { class: 'custom-file-input' }%>
+      <%= f.button :submit, "Upload" %>
+      <% end %>
+      <%= link_to edit_user_registration_path do %>
+      <p>Edit</p>
       <% end %>
   </div>
   <div class="fav-container">
@@ -16,11 +19,11 @@
     </div>
     <div class="card-container">
       <% @favourites.each do |f| %>
-        <div class="card">
+        <div>
           <% favourite = f.bathing_site %>
             <h2><%= link_to bathing_site_path(favourite.id) do %></h2>
             <h3><%= favourite.site_name.capitalize %></h3>
-            <img src="<%= bathing_site.web_res_image_url %>" alt="">
+            <img src="<%#= bathing_site.web_res_image_url %>" alt="Bathing Site Image">
             <% if favourite.reports.any? %>
               <i class="fa-solid fa-triangle-exclamation"></i>
             <% end %>

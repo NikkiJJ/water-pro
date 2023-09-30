@@ -1,5 +1,15 @@
 body {
   font-family: $body-font;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.home-content {
+  padding-top: 50px;
+    i {
+      padding-bottom: 50px;
+    }
 }
 
 header {
@@ -7,29 +17,6 @@ header {
   padding: 20px;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo h1 {
-  font-size: 24px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-right: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-}
 .home-title {
 
   background-size: cover;
@@ -62,25 +49,14 @@ nav {
   height: 300px;
 }
 
-.feature {
-  color: black;
-  flex: 1;
-  text-align: center;
-  padding: 50px;
-}
-
-.feature h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
 .typewriter {
   text-align: center;
   padding: 100px;
 }
 
 #text {
-  font-size: 25px;
+  font-size: 18px;
+  font-weight: bold;
   color: black;
   overflow: hidden; /* Hide overflowing text */
   border-right: 1px solid black; /* Add a typewriter cursor */

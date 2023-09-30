@@ -1,4 +1,4 @@
-<h2>Report an issue at <%= @bathing_site.site_name %></h1>
+<h5>Report an issue at <%= @bathing_site.site_name %></h5>
 
 <%= simple_form_for [@bathing_site, @new_report] do |f|%>
   <% f.label :issue %>
@@ -9,4 +9,3 @@
 
   <%= f.button :submit, class: "button" %>
 <% end %>
-

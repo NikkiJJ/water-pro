@@ -23,7 +23,9 @@ user = User.create!(
    nickname: "Admin",
    admin: true
  )
-api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=1300&_view=all&_pageSize=1300'
+
+api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=700&_view=all&_pageSize=700'
+
 response = HTTParty.get(api_endpoint)
 data = JSON.parse(response.body)
 data['result']['items'].each do |item|
@@ -50,12 +52,25 @@ data['result']['items'].each do |item|
   end
 
   web_res_image_url = "https://environment.data.gov.uk/media/image/bathing-water-profile/#{eubwid}_1-webres.jpg"
+# about api
+base_url = 'https://environment.data.gov.uk/doc/bathing-water-profile/'
+api_url2 = "#{base_url}#{eubwid}.json".freeze
+
+response2 = HTTParty.get(api_url2)
+data2 = JSON.parse(response2.body)
+
+if data2['result']['items'][0]['bathingWaterDescription'].present? && data2['result']['items'][0]['bathingWaterDescription']['_value'].present?
+site_info = data2['result']['items'][0]['bathingWaterDescription']['_value']
+else
+site_info = "No bathing water description available."
+end
 
   BathingSite.create!(
     site_name: site_name,
     region: county_name,
     eubwid: eubwid,
     water_quality: water_quality,
+    site_info: site_info,
     web_res_image_url: web_res_image_url
   )
   p "Created #{site_name}, #{county_name} bathing site!"

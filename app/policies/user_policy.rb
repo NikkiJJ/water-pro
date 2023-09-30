@@ -9,4 +9,12 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    true
+  end
+
+  def admin_dashboard?
+    user.admin? ? true : false
+  end
 end
