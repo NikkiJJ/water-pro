@@ -14,7 +14,9 @@ class BathingSitesController < ApplicationController
     @markers = @bathing_sites.geocoded.map do |bathing_site|
       {
         lat: bathing_site.latitude,
-        lng: bathing_site.longitude
+        lng: bathing_site.longitude,
+        popupContent: bathing_site.site_name,
+        popupLink: bathing_site_path(bathing_site)
       }
     end
     @bathing_site = @bathing_sites.first

@@ -18,6 +18,6 @@ class BathingSite < ApplicationRecord
   }
 
   def full_site_name
-    "#{site_name}, #{region}"
+    "#{site_name}, #{region}, United Kingdom"
   end
 end

@@ -15,11 +15,15 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
+    this.markersValue.forEach((marker, index) => {
+      const popup = new mapboxgl.Popup().setHTML(
+        `<a href='${marker.popupLink}'>${marker.popupContent}</a>`
+      );
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
-    })
+    });
   }
 
   #fitMapToMarkers() {

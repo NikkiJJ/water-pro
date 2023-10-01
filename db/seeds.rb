@@ -24,7 +24,7 @@ user = User.create!(
    admin: true
  )
 
-api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=700&_view=all&_pageSize=700'
+api_endpoint = 'http://environment.data.gov.uk/doc/bathing-water.json?_pageSize=1200&_view=all&_pageSize=1200'
 
 response = HTTParty.get(api_endpoint)
 data = JSON.parse(response.body)
