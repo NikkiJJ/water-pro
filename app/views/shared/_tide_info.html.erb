@@ -1,5 +1,4 @@
 <% if bathing_site.station_id.present? %>
-  <h6>Tide Information</h6>
   <% base_url = 'https://admiraltyapi.azure-api.net/uktidalapi/api/V1/Stations' %>
   <% station_id = sprintf('%04d', bathing_site.station_id) %>
   <% tide_info_url = "#{base_url}/#{station_id}/TidalEvents" %>
@@ -19,22 +18,23 @@
   <% next_high_tide = future_events&.find { |event| event['EventType'] == 'HighWater' } %>
   <% next_low_tide = future_events&.find { |event| event['EventType'] == 'LowWater' } %>
 
-  <p>
-    <% if next_high_tide %>
-      Next high tide is at <%= Time.parse(next_high_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %>
-    <% else %>
-      No upcoming high tide events.
-    <% end %>
-  </p>
+<% if next_high_tide && next_low_tide %>
+  <% next_high_tide_time = Time.parse(next_high_tide['DateTime']) %>
+  <% next_low_tide_time = Time.parse(next_low_tide['DateTime']) %>
 
-  <p>
-    <% if next_low_tide %>
-      Next low tide is at <%= Time.parse(next_low_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %>
-    <% else %>
-      No upcoming low tide events.
-    <% end %>
-  </p>
+  <% if next_low_tide_time < next_high_tide_time %>
+    <p>Tide is&nbsp;<h5>falling</h5>. Next low tide is on <%= next_low_tide_time.strftime('%d/%m/%y @ %H:%M') %></p>
+  <% else %>
+    <p>Tide is&nbsp;<h5>rising</h5>. Next high tide is on <%= next_high_tide_time.strftime('%d/%m/%y @ %H:%M') %></p>
+  <% end %>
+
+<% elsif next_low_tide %>
+  <p>Tide is&nbsp;<h5>falling</h5>. Next low tide is on <%= Time.parse(next_low_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %></p>
+
+<% elsif next_high_tide %>
+  <p>Tide is&nbsp;<h5>rising</h5>. Next high tide is on <%= Time.parse(next_high_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %></p>
 
 <% else %>
-  <p>No station ID available for tide information.</p>
+  <p>No upcoming tide events.</p>
 <% end %>
+<%end%>
