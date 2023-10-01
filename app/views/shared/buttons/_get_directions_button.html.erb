@@ -1,3 +1,6 @@
-<%= link_to '#', id: 'getDirectionsButton', data: { bathing_site_name: @bathing_site.site_name }, 'data-controller': 'get-directions', 'data-turbo': false do %>
+<%= link_to '#', id: 'getDirectionsButton', data: {
+  destination_lat: @bathing_site.latitude,
+  destination_lng: @bathing_site.longitude
+}, 'data-controller': 'get-directions', 'data-turbo': false do %>
   <i class="fas fa-map-marker-alt fa-lg"></i>
 <% end %>
