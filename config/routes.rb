@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :bathing_sites do
     resources :reviews, only: [ :new, :create]
-    resources :favourites, only: [:create]
+    resources :favourites, only: [:create, :update]
     resources :reports, only: [:new, :create]
   end
 
@@ -11,9 +11,9 @@ Rails.application.routes.draw do
     resources :report_reviews, only: [ :new, :create ]
   end
 
-  resources :report_reviews, only: [ :show, :destroy ]
+  resources :report_reviews, only: [:create]
 
-  resources :favourites, only: [:destroy]
+  resources :favourites, except: [:create, :update]
 
   get '/report_reviews/:id/confirmation', to: 'report_reviews#confirmation', as: :confirmed_review
 
