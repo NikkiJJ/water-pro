@@ -1,0 +1,40 @@
+<% if bathing_site.station_id.present? %>
+  <h6>Tide Information</h6>
+  <% base_url = 'https://admiraltyapi.azure-api.net/uktidalapi/api/V1/Stations' %>
+  <% station_id = sprintf('%04d', bathing_site.station_id) %>
+  <% tide_info_url = "#{base_url}/#{station_id}/TidalEvents" %>
+
+  <% headers = {
+    'Host' => 'admiraltyapi.azure-api.net',
+    'Ocp-Apim-Subscription-Key' => ENV['TIDE_API']
+  } %>
+
+  <% response = HTTParty.get(tide_info_url, headers: headers) %>
+  <% tidal_events = JSON.parse(response.body) %>
+
+  <% current_time = Time.now.iso8601 %>
+
+  <% future_events = tidal_events.select { |event| event['DateTime'] > current_time } %>
+
+  <% next_high_tide = future_events&.find { |event| event['EventType'] == 'HighWater' } %>
+  <% next_low_tide = future_events&.find { |event| event['EventType'] == 'LowWater' } %>
+
+  <p>
+    <% if next_high_tide %>
+      Next high tide is at <%= Time.parse(next_high_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %>
+    <% else %>
+      No upcoming high tide events.
+    <% end %>
+  </p>
+
+  <p>
+    <% if next_low_tide %>
+      Next low tide is at <%= Time.parse(next_low_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %>
+    <% else %>
+      No upcoming low tide events.
+    <% end %>
+  </p>
+
+<% else %>
+  <p>No station ID available for tide information.</p>
+<% end %>

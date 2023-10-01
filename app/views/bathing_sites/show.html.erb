@@ -53,7 +53,7 @@
 
         <div class="tide-item">
           <i class="fa-solid fa-droplet"></i>
-          <h6>The tide today is <%= @bathing_site.tide %></h6>
+          <%= render 'shared/tide_info', bathing_site: @bathing_site %>
         </div>
 
         <div class="weather-info">
@@ -108,5 +108,4 @@
         </div>
       </div>
     </div>
-
-</div>
+   </div>
