@@ -16,7 +16,6 @@
   <% end %>
 <% end %>
 
-<% # Helper method to determine the text based on AQI value %>
 <% def air_quality_text(aqi_value) %>
   <% case aqi_value %>
     <% when 1 %>
@@ -34,12 +33,15 @@
   <% end %>
 <% end %>
 
-<div class="air-quality-info">
-  <% if @air_data.present? %>
-    <% aqi_value = @air_data['list'][0]['main']['aqi'] %>
-    <i class="fa-solid fa-air" style="color: <%= air_quality_color(aqi_value) %>;"></i>
-    <h6>Air quality is <%= air_quality_text(aqi_value) %></h6>
+<div class ="weather-info">
+<% if @air_data.present? %>
+  <% aqi_value = @air_data['list'][0]['main']['aqi'] %>
+    <i class="fa-solid fa-air" style="vertical-align: middle;"></i>
+    <h6 style="color: <%= air_quality_color(aqi_value) %>; " >
+          Air quality is <%= air_quality_text(aqi_value) %>
+    </h6>
   </div>
 <% else %>
   <p>Air quality information not available.</p>
 <% end %>
+</div>
