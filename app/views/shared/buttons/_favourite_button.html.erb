@@ -1,11 +1,11 @@
-<%# if @favourite %>
-  <%#= link_to favourite_path(@favourite), data: { turbo_method: :delete, turbolinks: true } do %>
-    <%# <i class="fas fa-heart fa-lg"></i> %>
-  <%# end %>
-<%# else %>
-  <%#= link_to bathing_site_favourites_path(@bathing_site), data: { turbo_method: :post, turbolinks: true }, class: 'favorite-button' do %>
-    <%# <i class="far fa-heart fa-lg"></i> %>
-  <%# end %>
-<%# end %>
+<% if @favourite %>
+  <%= link_to favourite_path(@favourite), data: { turbo_method: :delete, turbolinks: true } do %>
+    <i class="fas fa-heart fa-lg"></i>
+  <% end %>
+<% else %>
+  <%= link_to bathing_site_favourites_path(@bathing_site), data: { turbo_method: :post, turbolinks: true }, class: 'favorite-button' do %>
+    <i class="far fa-heart fa-lg"></i>
+  <% end %>
+<% end %>
 
-<%= link_to "Favourite", favourite_path, turbo_method: :patch %>
+<%#= link_to "Favourite", favourite_path, turbo_method: :patch %>
