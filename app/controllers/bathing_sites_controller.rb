@@ -1,21 +1,20 @@
 require 'httparty'
 class BathingSitesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_bathing_site, only: %i[show edit update destroy]
 
   def index
-    @bathing_sites = policy_scope(BathingSite).all
-
     if params[:query].present?
       @bathing_sites = BathingSite.search_by_site_name_and_region(params[:query])
+      @bathing_sites = policy_scope(BathingSite).where(id: @bathing_sites)
     else
-      policy_scope(BathingSite).all
+      @bathing_sites = policy_scope(BathingSite).all
     end
 
     @markers = @bathing_sites.geocoded.map do |bathing_site|
       {
         lat: bathing_site.latitude,
-        lng: bathing_site.longitude,
+        lng: bathing_site.longitude
       }
     end
     @bathing_site = @bathing_sites.first

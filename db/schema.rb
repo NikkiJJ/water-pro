@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_173115) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_30_180933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_173115) do
     t.string "eubwid"
     t.string "web_res_image_url"
     t.string "site_info"
+    t.integer "station_id"
     t.index ["user_id"], name: "index_bathing_sites_on_user_id"
   end
 
@@ -106,6 +107,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_173115) do
     t.datetime "updated_at", null: false
     t.index ["bathing_site_id"], name: "index_reviews_on_bathing_site_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "tidal_informations", force: :cascade do |t|
+    t.integer "station_id"
+    t.string "station_name"
+    t.string "country"
+    t.boolean "continuous_heights_available"
+    t.string "footnote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|

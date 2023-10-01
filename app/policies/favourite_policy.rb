@@ -5,6 +5,10 @@ class FavouritePolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def new?
     create?
   end
