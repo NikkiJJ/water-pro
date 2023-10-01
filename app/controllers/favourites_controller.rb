@@ -4,6 +4,11 @@ class FavouritesController < ApplicationController
     @favourites = policy_scope(Favourite)
   end
 
+  def show
+    @bathing_site = BathingSite.find(params[:id])
+    authorize @favourite
+  end
+
   def new
     @favourite = Favourite.new(farvourite_params)
     authorize @favourite
@@ -22,6 +27,22 @@ class FavouritesController < ApplicationController
     authorize @favourite
     @favourite.destroy
     redirect_back_or_to "/"
+  end
+
+  def update
+    if current_user.signed_in?
+      @favourite = Favourite.where(bathing_site: BathingSite.find(params[:bathing_site]), user: current_user)
+      if @favourite == []
+        Favourite.create(bathing_site: BathingSite.find(params[:bathing_site]), user: current_user)
+        @favourite_exists = true
+      else
+      end
+      respond_to |format|
+        format.html{}
+        format.js{}
+    else
+      link_to "Login", new_user_session_path
+    end
   end
 
   private

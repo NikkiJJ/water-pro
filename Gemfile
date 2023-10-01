@@ -61,6 +61,7 @@ gem "geocoder"
 gem "pundit"
 gem "bootstrap", "~> 5.2"
 gem "devise"
+gem 'jquery-rails'
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"

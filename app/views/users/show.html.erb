@@ -17,19 +17,31 @@
     <div class="title">
       <h1 class="text-center">Your Favourites</h1>
     </div>
-    <div class="card-container">
-      <% @favourites.each do |f| %>
-        <div>
-          <% favourite = f.bathing_site %>
-            <h2><%= link_to bathing_site_path(favourite.id) do %></h2>
-            <h3><%= favourite.site_name.capitalize %></h3>
-            <img src="<%#= bathing_site.web_res_image_url %>" alt="Bathing Site Image">
-            <% if favourite.reports.any? %>
-              <i class="fa-solid fa-triangle-exclamation"></i>
-            <% end %>
-          <% end %>
-        </div>
-      <% end  %>
+    <div id="carouselExampleControls" class="carousel carousel-dark slide d-flex w-100" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% @favourites.each_with_index do |f, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %> ">
+            <div class="d-block w-50 mx-auto">
+              <% favourite = f.bathing_site %>
+                <h2><%= link_to bathing_site_path(favourite.id) do %></h2>
+                <h3><%= favourite.site_name.capitalize %></h3>
+                <img src="<%= f.bathing_site.web_res_image_url %>" alt="Bathing Site Image">
+                <% if favourite.reports.any? %>
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
 </div>
