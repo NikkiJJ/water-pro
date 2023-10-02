@@ -1,18 +1,17 @@
 .button {
   color: $primary-accent;
   background-color: $accent-light;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   text-align: center;
   border-radius: 7.5px;
   width: 120px;
-  height: 30px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px  solid $primary-accent;
   padding: 5px;
-  margin-top: 30px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 
   &:hover {
@@ -20,9 +19,14 @@
   }
 }
 
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+
+}
 .small-button {
-  width: 70px;
-  height: 30px;
+  width: 75px;
+  height: 45px;
   font-size: 14px;
 
   &:hover {
@@ -36,4 +40,10 @@
 
 .far.fa-heart {
   color: $primary-accent;
+}
+
+.forgot-password-button {
+  text-decoration: none;
+  text-align: center;
+  font-size: 10px;
 }

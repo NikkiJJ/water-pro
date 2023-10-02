@@ -6,29 +6,24 @@ export default class extends Controller {
     console.log("hello!")
     const getDirectionsButton = document.getElementById('getDirectionsButton');
 
-      getDirectionsButton.addEventListener('click', function () {
+    getDirectionsButton.addEventListener('click', function () {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          const userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
 
-          if ("geolocation" in navigator) {
+          const destinationLat = getDirectionsButton.getAttribute('data-destination-lat');
+          const destinationLng = getDirectionsButton.getAttribute('data-destination-lng');
 
-              navigator.geolocation.getCurrentPosition(function (position) {
-                  const userLocation = {
-                      lat: position.coords.latitude,
-                      lng: position.coords.longitude
-                  };
+          const directionsURL = `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${destinationLat},${destinationLng}`;
 
-
-                  const bathingSiteName = getDirectionsButton.getAttribute('data-bathing-site-name');
-
-
-                  const directionsURL = `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${bathingSiteName}`;
-
-                  window.open(directionsURL, '_blank');
-              });
-          } else {
-
-              alert("Geolocation is not supported by your browser.");
-          }
-      });
-    };
-
+          window.open(directionsURL, '_blank');
+        });
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    });
   }
+}

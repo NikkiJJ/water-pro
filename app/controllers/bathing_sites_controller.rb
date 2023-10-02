@@ -31,6 +31,7 @@ class BathingSitesController < ApplicationController
     @weather_data = retrieve_weather_data(@bathing_site.latitude, @bathing_site.longitude)
     @new_report = Report.new(bathing_site: @bathing_site)
     @reports = @bathing_site.reports
+    @air_data = retrieve_air_data(@bathing_site.latitude, @bathing_site.longitude)
   end
 
   def new
@@ -75,6 +76,16 @@ class BathingSitesController < ApplicationController
     if response.code == 200
       weather_data = JSON.parse(response.body)
       weather_data
+    end
+  end
+
+  def retrieve_air_data(latitude, longitude)
+    aapi_key = ENV['AIR_Q_API']
+    url = "http://api.openweathermap.org/data/2.5/air_pollution?lat=#{latitude}&lon=#{longitude}&appid=#{aapi_key}"
+    response2 = HTTParty.get(url)
+    if response2.code == 200
+      air_data = JSON.parse(response2.body)
+      air_data
     end
   end
 
