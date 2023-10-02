@@ -1,4 +1,4 @@
-class TidalInformationsController < ApplicationController
+class TidalInformationController < ApplicationController
   def show
     tidal_info = TidalInformation.find_by(station_name: params[:station_name])
     if tidal_info
