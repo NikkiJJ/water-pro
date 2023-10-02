@@ -19,7 +19,7 @@
               <h5 class="text-center" id="site-title"><%= bathing_site.site_name.capitalize %></h5>
               <img src="<%= bathing_site.web_res_image_url %>" alt="Bathing Site Image">
             </div>
-          <% end %>
+          <% end %> 
               <% if bathing_site.water_quality == "closed" %>
                   <h6 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h6>
               <% else %>
