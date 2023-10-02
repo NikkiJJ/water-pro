@@ -1,13 +1,17 @@
-<h1>Report a Review</h1>
+<div class="page-container">
+  <div class="form-container">
+    <h3>Report a Review</h3>
 
-<%= simple_form_for [@review, @report_review] do |f|%>
-  <% f.hidden_field :review_id, value: params[:review_id] %>
+    <%= simple_form_for [@review, @report_review] do |f|%>
+      <% f.hidden_field :review_id, value: params[:review_id] %>
 
-  <% f.label :issue %>
-  <%= f.input :issue, as: :select, collection: (['Inappropriate', 'Language', 'Irrelevant', 'Other']) %>
+      <% f.label :issue %>
+      <%= f.input :issue, as: :select, collection: (['Inappropriate', 'Language', 'Irrelevant', 'Other']) %>
 
-  <% f.label :comment %>
-  <%= f.input :comment, as: :text %>
+      <% f.label :comment %>
+      <%= f.input :comment, as: :text %>
 
-  <%= f.button :submit, class: "button" %>
-<% end %>
+      <%= f.button :submit, class: "button" %>
+    <% end %>
+  </div>
+</div>
