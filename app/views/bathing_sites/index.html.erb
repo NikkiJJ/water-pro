@@ -14,17 +14,19 @@
     <div class="card-container">
       <% @bathing_sites.each do |bathing_site| %>
         <div class="card">
-          <%= link_to bathing_site_path(bathing_site) do %>
-            <div class="site-header">
-              <h5 class="text-center" id="site-title"><%= bathing_site.site_name.capitalize %></h5>
-              <img src="<%= bathing_site.web_res_image_url %>" alt="Bathing Site Image">
-            </div>
-          <% end %> 
-              <% if bathing_site.water_quality == "closed" %>
-                  <h6 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h6>
-              <% else %>
-                  <h6 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h6>
-              <% end %>
+          <div>
+            <%= link_to bathing_site_path(bathing_site) do %>
+              <div class="site-header">
+                <h5 class="text-center" id="site-title"><%= bathing_site.site_name.capitalize %></h5>
+                <img src="<%= bathing_site.web_res_image_url %>" alt="Bathing Site Image">
+              </div>
+            <% end %>
+                <% if bathing_site.water_quality == "closed" %>
+                    <h6 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h6>
+                <% else %>
+                    <h6 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h6>
+                <% end %>
+          </div>
                <%= render 'shared/buttons/see_more', bathing_site: bathing_site %>
         </div>
       <% end %>
