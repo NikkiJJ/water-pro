@@ -1,0 +1,49 @@
+.admin-body {
+  display: flex;
+  flex-direction: column;
+  background-color: $body;
+    h4 {
+      color: $primary-accent;
+      font-weight: bold;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    h5 {
+      color: $primary-accent;
+      font-weight: bold;
+    }
+}
+
+.reported-beaches-card {
+  background-color: white;
+  width: 98%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.reported-reviews-card {
+  background-color: white;
+  width: 98%;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.each-report {
+  margin: 5px 40px 2px 5px;
+  border-radius: 10px;
+  padding: 15px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 50%;
+}
+
+.site-and-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

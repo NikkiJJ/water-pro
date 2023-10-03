@@ -1,22 +1,4 @@
-<% # Helper method to determine the color based on AQI value %>
-<% def air_quality_color(aqi_value) %>
-  <% case aqi_value %>
-    <% when 1 %>
-      <%= 'green' %>
-    <% when 2 %>
-      <%= '#d6d460' %>
-    <% when 3 %>
-      <%= 'orange' %>
-    <% when 4 %>
-      <%= 'red' %>
-    <% when 5 %>
-      <%= 'darkred' %>
-    <% else %>
-      <%= 'black' %>
-  <% end %>
-<% end %>
 
-<% # Helper method to determine the text based on AQI value %>
 <% def air_quality_text(aqi_value) %>
   <% case aqi_value %>
     <% when 1 %>
@@ -34,12 +16,10 @@
   <% end %>
 <% end %>
 
-<div class="air-quality-info">
   <% if @air_data.present? %>
     <% aqi_value = @air_data['list'][0]['main']['aqi'] %>
-    <i class="fa-solid fa-air" style="color: <%= air_quality_color(aqi_value) %>;"></i>
+    <i class="fa-solid fa-air"></i>
     <h6>Air quality is <%= air_quality_text(aqi_value) %></h6>
-  </div>
 <% else %>
   <p>Air quality information not available.</p>
 <% end %>

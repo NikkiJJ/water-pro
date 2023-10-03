@@ -1,13 +1,12 @@
 .body {
-  background-color: #f2f7fb;
+  background-color: $body;
   margin-top: 15;
   padding-top: 15;
-  height: 100vh;
-  h3 {
-    padding-top: 30px;
-    font-weight: bold;
-    color: $primary-accent;
-  }
+    h3 {
+      padding-top: 30px;
+      font-weight: bold;
+      color: $primary-accent;
+    }
 }
 
 #reported-site {
@@ -30,8 +29,6 @@
   margin-bottom: 0px;
 }
 
-
-
 .site-info {
   padding-left: 17%;
   padding-right: 17%;
@@ -51,6 +48,11 @@
   margin-right: 10px;
 }
 
+.fa-smog {
+  color: $primary-accent;
+  margin-right: 10px;
+}
+
 .fa-map-marker-alt {
   color: $primary-accent;
   margin-right: 10px;
@@ -67,6 +69,15 @@
 }
 
 .water-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+    h4 {
+      margin-left: 20px;
+    }
+}
+
+.airq-item {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
