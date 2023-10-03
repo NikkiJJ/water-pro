@@ -2,7 +2,7 @@
 
 <%= simple_form_for [@bathing_site, @new_report] do |f|%>
   <% f.label :issue %>
-  <%= f.input :issue, as: :select, collection: (['Oil Spill', 'Weather Issues', 'High Tide', 'Other']) %>
+  <%= f.input :issue, as: :select, collection: (['Sewage', 'Oil Spill', 'Weather Issues', 'High Tide', 'Excessive Litter', 'Other']) %>
 
   <% f.label :comment %>
   <%= f.input :comment, as: :text %>
