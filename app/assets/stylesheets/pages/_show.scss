@@ -11,7 +11,14 @@
 
 #reported-site {
   background-color: rgba(247, 191, 191, 0.794);
-  border: rgba(247, 191, 191, 0.794);
+  // border: 1px, solid, rgba(188, 87, 87, 0.794);
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.086);
+  color: rgba(186, 75, 75, 0.794);
+
+  i {
+    font-size: 30px;
+  }
 }
 
   h1 {

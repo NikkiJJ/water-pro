@@ -1,8 +1,16 @@
-  <p>An issue has been identified for this site:</p>
-  <% @reports.each do |report| %>
-  <%= report.issue %>
+<div id="reported-site">
+    <div class="d-flex justify-content-center">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+  </div>
   <br>
-  <%= report.comment %>
-  <% end %>
-  <br>
-  <p>it is not recommended you swim at this site today</p>
+  <div>
+    <h4><strong>An issue has been identified for this site:</strong></h4>
+    <% @reports.each do |report| %>
+    <%= report.issue %>
+    <br>
+    <%= report.comment %>
+    <% end %>
+    <br>
+    <p>it is not recommended you swim at this site today</p>
+  </div>
+</div>
