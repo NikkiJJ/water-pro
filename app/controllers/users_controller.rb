@@ -6,6 +6,15 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect user_path(@user)
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
+
   def admin_dashboard
     @user = User.find(params[:id])
     @report_reviews = policy_scope(ReportReview).all
