@@ -24,8 +24,6 @@
   margin-bottom: 0px;
 }
 
-
-
 .site-info {
   padding-left: 17%;
   padding-right: 17%;
@@ -45,6 +43,11 @@
   margin-right: 10px;
 }
 
+.fa-smog {
+  color: $primary-accent;
+  margin-right: 10px;
+}
+
 .fa-map-marker-alt {
   color: $primary-accent;
   margin-right: 10px;
@@ -61,6 +64,15 @@
 }
 
 .water-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+    h4 {
+      margin-left: 20px;
+    }
+}
+
+.airq-item {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

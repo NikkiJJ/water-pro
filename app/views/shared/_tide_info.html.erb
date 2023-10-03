@@ -23,16 +23,16 @@
     <% next_low_tide_time = Time.parse(next_low_tide['DateTime']) %>
 
     <% if next_low_tide_time < next_high_tide_time %>
-      <p>Tide is&nbsp;<h5>falling</h5>. Next low tide is on <%= next_low_tide_time.strftime('%d/%m/%y @ %H:%M') %></p>
+      <p>Tide is&nbsp;<u>falling</u>. Next low tide is on <%= next_low_tide_time.strftime('%d/%m/%y @ %H:%M') %></p>
     <% else %>
-      <p>Tide is&nbsp;<h5>rising</h5>. Next high tide is on <%= next_high_tide_time.strftime('%d/%m/%y @ %H:%M') %></p>
+      <p>Tide is&nbsp;<u>rising</u>. Next high tide is on <%= next_high_tide_time.strftime('%d/%m/%y @ %H:%M') %></p>
     <% end %>
 
   <% elsif next_low_tide %>
-    <p>Tide is&nbsp;<h5>falling</h5>. Next low tide is on <%= Time.parse(next_low_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %></p>
+    <p>Tide is&nbsp;<u>falling</u>. Next low tide is on <%= Time.parse(next_low_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %></p>
 
   <% elsif next_high_tide %>
-    <p>Tide is&nbsp;<h5>rising</h5>. Next high tide is on <%= Time.parse(next_high_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %></p>
+    <p>Tide is&nbsp;<u>rising</u>. Next high tide is on <%= Time.parse(next_high_tide['DateTime']).strftime('%d/%m/%y @ %H:%M') %></p>
 
   <% else %>
     <p>No upcoming tide events.</p>

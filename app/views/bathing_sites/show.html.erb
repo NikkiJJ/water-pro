@@ -34,6 +34,11 @@
         <%= render 'shared/tide_info', bathing_site: @bathing_site %>
       </div>
 
+         <div class="airq-item">
+        <i class="fa-solid fa-smog"></i>
+        <%= render 'shared/air_quality', bathing_site: @bathing_site %>
+      </div>
+
       <div class="weather-info">
         <% if @weather_data.present? %>
           <i class="fa-solid fa-rainbow"></i>
