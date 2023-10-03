@@ -1,34 +1,44 @@
-<div class="d-flex">
-  <div><h1>Reported Beaches</h1>
+<div class="admin-body">
+  <h4 class="text-center">Dashboard</h4>
+  <h6 class="text-center">Pending reports: Reported Sites - <%= @reports.count %> . Reported Reviews - <%= @report_reviews.count %></h6>
+  <div class="reported-beaches-card">
+      <h5>Reported Beaches</h5>
 
-  <% @reports.each do |report| %>
-    <div>
-      <%= link_to bathing_site_path(report.bathing_site.id) do %>
-      <%= report.bathing_site.site_name %>
-      <% end %>
-      <%= report.issue %>
-      <%= report.comment %>
+    <% @reports.each do |report| %>
+      <div class="each-report">
+        <div class="site-and-date">
+          <%= link_to bathing_site_path(report.bathing_site.id) do %>
+          <h6><%= report.bathing_site.site_name %></h6>
+        <% end %>
+          <h6><%= report.created_at %></h6>
+        </div>
+        <%= report.issue %>
+        <%= report.comment %>
+      </div>
+        <%= simple_form_for report, method: :patch do |f| %>
+          <%= f.button :submit, 'Confirm' %>
+        <% end %>
 
-      <%= simple_form_for report, method: :patch do |f| %>
-        <%= f.button :submit, 'Confirm' %>
-      <% end %>
-
-      <%= button_to "Dismiss", report, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  <% end %>
-
+        <%= button_to "Dismiss", report, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
   </div>
-  <div>
-    <h1>Reported Reviews</h1>
+
+  <div class="reported-reviews-card">
+    <h5>Reported Reviews</h5>
     <% @report_reviews.each do |r| %>
       <div>
-        <%= r.review.title %>
-        <%= r.review.body %>
-        <%= r.issue %>
-        <%= r.comment %>
+        <div class="each-review">
+          <%= r.review.bathing_site.site_name %>
+          <%= r.review.title %>
+          <%= r.review.body %>
+        </div>
+        <div class="each-review">
+          <%= r.issue %>
+          <%= r.comment %>
+        </div>
 
         <%= button_to "Delete Review", review_path(r.review_id), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= button_to "Dismiss", report_review_path(r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= button_to "Dismiss", report_reviews_path(r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     <% end %>
   </div>

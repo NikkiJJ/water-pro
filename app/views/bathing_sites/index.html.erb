@@ -22,9 +22,9 @@
               </div>
             <% end %>
                 <% if bathing_site.water_quality == "closed" %>
-                    <h6 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h6>
+                    <h6 class="card-text">Latest reported water quality - <%=  bathing_site.water_quality %></h6>
                 <% else %>
-                    <h6 class="card-text">Average water quality over past 4 years - <%=  bathing_site.water_quality %></h6>
+                    <h6 class="card-text">Latest reported water quality - <%=  bathing_site.water_quality %></h6>
                 <% end %>
           </div>
                <%= render 'shared/buttons/see_more', bathing_site: bathing_site %>
