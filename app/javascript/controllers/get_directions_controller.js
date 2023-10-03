@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="get-directions"
 export default class extends Controller {
   connect() {
-    console.log("hello!")
+    console.log("get directions")
     const getDirectionsButton = document.getElementById('getDirectionsButton');
 
     getDirectionsButton.addEventListener('click', function () {

@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FavouriteButtonController from "./favourite_button_controller"
+application.register("favourite-button", FavouriteButtonController)
+
 import GetDirectionsController from "./get_directions_controller"
 application.register("get-directions", GetDirectionsController)
 
