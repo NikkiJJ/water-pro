@@ -12,8 +12,10 @@
         <% end %>
           <h6><%= report.created_at %></h6>
         </div>
-        <%= report.issue %>
-        <%= report.comment %>
+        <div class="report-body">
+          <p><%= report.issue %></p>
+          <%= report.comment %>
+        </div>
       </div>
         <%= simple_form_for report, method: :patch do |f| %>
           <%= f.button :submit, 'Confirm' %>
