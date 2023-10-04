@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect user_path(@user)
+      redirect_to user_path(@user)
     else
       render :show, status: :unprocessable_entity
     end

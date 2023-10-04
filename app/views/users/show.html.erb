@@ -2,7 +2,6 @@
 <div class="dashboard-body">
   <div class="profile-card">
     <h3>Your Profile</h3>
-    <%=  @user.photo.key %>
     <%= cl_image_tag @current_user.photo.key, height: 400, width: 400, crop: :fill, class: "profile-image" %>
     <h6><%= @current_user.first_name.capitalize %> <%= @current_user.last_name.capitalize %></h6>
     <h6><%= @current_user.email %></h6>
