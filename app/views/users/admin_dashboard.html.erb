@@ -11,11 +11,11 @@
             <%= link_to bathing_site_path(report.bathing_site.id) do %>
             <h6><%= report.bathing_site.site_name.upcase %></h6>
           <% end %>
-            <h6><%= report.created_at %></h6>
+            <h6><%= report.created_at.strftime("%B %d, %Y %I:%M %p") %></h6>
           </div>
           <div class="report-body">
-            <p>Issue reported: <%= report.issue %></p>
-            <p>Comment: <%= report.comment %></p>
+            <p class="color-p"><i class="fa-solid fa-flag"></i>  <%= report.issue %></p>
+            <p class="custom-p"><i class="fa-solid fa-comment"></i>  <%= report.comment.capitalize %></p>
           </div>
         </div>
           <div class="confirm-delete-buttons">
@@ -35,16 +35,16 @@
           <div class="each-report">
             <div class="site-and-date">
               <h6><%= r.review.bathing_site.site_name.upcase %></h6>
-              <h6><%= r.review.created_at %></h6>
+              <h6><%= r.review.created_at.strftime("%B %d, %Y %I:%M %p") %></h6>
             </div>
             <div class="report-body">
-              <p><%= r.review.title.capitalize %></p>
-              <p><%= r.review.body %></p>
+              <p class="color-p"><%= r.review.title.capitalize %></p>
+              <p class="custom-p"><%= r.review.body.capitalize %></p>
             </div>
           </div>
           <div class="each-report" class="site-and-date">
-            <p><%= r.issue %></p>
-            <p><%= r.comment %></p>
+            <p class="color-p"><i class="fa-solid fa-flag"></i> <%= r.issue %></p>
+            <p class="custom-p"><i class="fa-solid fa-comment"></i>  <%= r.comment.capitalize %></p>
           </div>
           <div class="confirm-delete-buttons">
             <%= button_to "Delete Review", review_path(r.review_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
