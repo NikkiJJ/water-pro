@@ -1,48 +1,57 @@
 <div class="admin-body">
   <h4 class="text-center">Dashboard</h4>
   <h6 class="text-center">Pending reports: Reported Sites - <%= @reports.count %> . Reported Reviews - <%= @report_reviews.count %></h6>
-  <div class="reported-beaches-card">
-      <h5>Reported Beaches</h5>
+  <div class="reports-container">
+    <div class="reported-beaches-card">
+        <h5>Reported Beaches</h5>
 
-    <% @reports.each do |report| %>
-      <div class="each-report">
-        <div class="site-and-date">
-          <%= link_to bathing_site_path(report.bathing_site.id) do %>
-          <h6><%= report.bathing_site.site_name %></h6>
-        <% end %>
-          <h6><%= report.created_at %></h6>
+      <% @reports.each do |report| %>
+        <div class="each-report">
+          <div class="site-and-date">
+            <%= link_to bathing_site_path(report.bathing_site.id) do %>
+            <h6><%= report.bathing_site.site_name.upcase %></h6>
+          <% end %>
+            <h6><%= report.created_at %></h6>
+          </div>
+          <div class="report-body">
+            <p>Issue reported: <%= report.issue %></p>
+            <p>Comment: <%= report.comment %></p>
+          </div>
         </div>
-        <div class="report-body">
-          <p><%= report.issue %></p>
-          <%= report.comment %>
-        </div>
-      </div>
-        <%= simple_form_for report, method: :patch do |f| %>
-          <%= f.button :submit, 'Confirm' %>
-        <% end %>
+          <div class="confirm-delete-buttons">
+          <%= simple_form_for report, method: :patch do |f| %>
+            <%= f.button :submit, 'Confirm', class: "button" %>
+          <% end %>
 
-        <%= button_to "Dismiss", report, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+          <%= button_to "Dismiss", report, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+          <% end %>
+          </div>
+    </div>
+
+    <div class="reported-reviews-card">
+      <h5>Reported Reviews</h5>
+      <% @report_reviews.each do |r| %>
+        <div>
+          <div class="each-report">
+            <div class="site-and-date">
+              <h6><%= r.review.bathing_site.site_name.upcase %></h6>
+              <h6><%= r.review.created_at %></h6>
+            </div>
+            <div class="report-body">
+              <p><%= r.review.title.capitalize %></p>
+              <p><%= r.review.body %></p>
+            </div>
+          </div>
+          <div class="each-report" class="site-and-date">
+            <p><%= r.issue %></p>
+            <p><%= r.comment %></p>
+          </div>
+          <div class="confirm-delete-buttons">
+            <%= button_to "Delete Review", review_path(r.review_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+            <%= button_to "Dismiss", report_reviews_path(r.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="reported-reviews-card">
-    <h5>Reported Reviews</h5>
-    <% @report_reviews.each do |r| %>
-      <div>
-        <div class="each-review">
-          <%= r.review.bathing_site.site_name %>
-          <%= r.review.title %>
-          <%= r.review.body %>
-        </div>
-        <div class="each-review">
-          <%= r.issue %>
-          <%= r.comment %>
-        </div>
-
-        <%= button_to "Delete Review", review_path(r.review_id), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= button_to "Dismiss", report_reviews_path(r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
-  </div>
-
 </div>
