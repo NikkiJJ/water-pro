@@ -1,4 +1,9 @@
-const text = "This is a typewriter effect example.";
+import { Controller } from "@hotwired/stimulus"
+
+// Connects to data-controller="script"
+export default class extends Controller {
+  connect() {
+    const text = "This is a typewriter effect example.";
 const textElement = document.getElementById("text");
 
 let index = 0;
@@ -12,3 +17,5 @@ function type() {
 }
 
 type(); // Start typing when the page loads
+  }
+}

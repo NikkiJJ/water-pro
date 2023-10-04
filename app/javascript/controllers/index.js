@@ -16,5 +16,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ScriptController from "./script_controller"
+application.register("script", ScriptController)
+
 import SocialShareButtonController from "./social_share_button_controller"
 application.register("social-share-button", SocialShareButtonController)
