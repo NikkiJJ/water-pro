@@ -2,8 +2,7 @@
   <div class="first">
     <div class="top-section">
       <div class="header-section">
-       <%= render 'shared/buttons/back_button' %>
-        <h3><%= @bathing_site.site_name.capitalize %></h3>
+        <h3><%= render 'shared/buttons/back_button' %><%= @bathing_site.site_name.capitalize %></h3>
         <h6><%= @bathing_site.region %> . <%= @reviews.count %> reviews . <%= @reports.count %> reports</h6>
         <br>
         <%= @bathing_site.site_info %>
@@ -47,6 +46,10 @@
         <% else %>
           <p>Weather information not available.</p>
         <% end %>
+      </div>
+    <div class="airq-item">
+        <i class="fa-solid fa-smog"></i>
+        <%= render 'shared/air_quality', bathing_site: @bathing_site %>
       </div>
     </div>
   </div>
