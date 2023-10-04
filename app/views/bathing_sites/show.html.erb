@@ -17,6 +17,11 @@
         <%= social_share_button_tag(@bathing_site, :allow_sites => %w(twitter facebook whatsapp_app)) %>
       </div>
 
+      <div>
+        <% if @bathing_site.reports.any? { |report| report.confirmation } %>
+          <%= render "reports/show", locals: { reports: @reports} %>
+        <% end %>
+      </div>
       <% if @bathing_site.water_quality == "closed" %>
         <div class="water-item">
           <i class="fa-solid fa-exclamation"></i>
@@ -34,33 +39,16 @@
         <%= render 'shared/tide_info', bathing_site: @bathing_site %>
       </div>
 
-         <div class="airq-item">
-        <i class="fa-solid fa-smog"></i>
-        <%= render 'shared/air_quality', bathing_site: @bathing_site %>
-      </div>
-
       <div class="weather-info">
         <% if @weather_data.present? %>
           <i class="fa-solid fa-rainbow"></i>
           <h6> <%= @weather_data['main']['temp'] %>°C, <%= @weather_data['weather'][0]['description'] %></h6>
-        </div>
         <% else %>
           <p>Weather information not available.</p>
         <% end %>
       </div>
-
-      <% if @bathing_site.reports.any? { |report| report.confirmation } %>
-        <%= render "reports/show", locals: { reports: @reports} %>
-      <% end %>
     </div>
   </div>
-
-  <!--
-  <div class="second">
-    <img src="https://images.unsplash.com/photo-1564698010692-0fe284aae806?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80" alt="">
-    <h4>Get instant updates on water quality and stay informed about pollution issues at your favorite beaches.</h4>
-  </div>
-  -->
 
   <div class="third">
     <div class="bottom-page">
@@ -122,6 +110,4 @@
       </div>
     <% end %>
   </div>
-
-
 </div>
