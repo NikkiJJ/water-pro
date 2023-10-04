@@ -2,6 +2,7 @@
   <div class="first">
     <div class="top-section">
       <div class="header-section">
+       <%= render 'shared/buttons/back_button' %>
         <h3><%= @bathing_site.site_name.capitalize %></h3>
         <h6><%= @bathing_site.region %> . <%= @reviews.count %> reviews . <%= @reports.count %> reports</h6>
         <br>
