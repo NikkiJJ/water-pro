@@ -42,6 +42,11 @@
   color: black;
   text-align: center;
 }
+.card:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.08);
+  transition: background-color 0.5s, transform 0.3s;
+}
 
 .site-header {
   text-decoration: none;
@@ -51,7 +56,8 @@
 .card-text {
   text-decoration: none;
   color: black;
-  text-align: left;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 .card {
@@ -73,5 +79,8 @@
     }
     h6 {
       padding: 5px;
+    }
+    p {
+      font-size: small;
     }
 }

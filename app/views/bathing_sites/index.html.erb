@@ -17,14 +17,17 @@
           <div>
             <%= link_to bathing_site_path(bathing_site) do %>
               <div class="site-header">
-                <h5 class="text-center" id="site-title"><%= bathing_site.site_name.capitalize %></h5>
                 <img src="<%= bathing_site.web_res_image_url %>" alt="Bathing Site Image">
+                <h5 class="text-center" id="site-title"><%= bathing_site.site_name.capitalize %></h5>
               </div>
             <% end %>
                 <% if bathing_site.water_quality == "closed" %>
-                    <h6 class="card-text">Latest reported water quality - <%=  bathing_site.water_quality %></h6>
+                    <p class="card-text">Latest reported water quality: </p>
+                    <h6 class="card-text mb-1"><%=  bathing_site.water_quality %></h6>
                 <% else %>
-                    <h6 class="card-text">Latest reported water quality - <%=  bathing_site.water_quality %></h6>
+                    <p class="card-text">Latest reported water quality: </p>
+                    <h6 class="card-text mb-1"><%=  bathing_site.water_quality %></h6>
+
                 <% end %>
           </div>
                <%= render 'shared/buttons/see_more', bathing_site: bathing_site %>
