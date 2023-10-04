@@ -113,7 +113,7 @@ end
 BathingSite.all.each do |bathing_site|
   latitude = bathing_site.latitude
   longitude = bathing_site.longitude
-  closest_tidal_info = TidalInformation.near([latitude, longitude], 20).first
+  closest_tidal_info = TidalInformation.near([latitude, longitude], 40).first
 
   if closest_tidal_info
     bathing_site.update(station_id: closest_tidal_info.station_id)
