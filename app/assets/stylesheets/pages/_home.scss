@@ -88,3 +88,16 @@ header {
     border-color: black;
   }
 }
+
+@media (max-width: 768px) {
+  .typewriter {
+    text-align: center;
+    padding: 100px;
+  }
+  #text {
+    font-size: 14px;
+    border-right: 1px solid black;
+    letter-spacing: 2px;
+  }
+
+ }
