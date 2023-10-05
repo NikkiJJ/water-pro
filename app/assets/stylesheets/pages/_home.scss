@@ -41,7 +41,8 @@ header {
 }
 
 .features {
-  background-color: $accent-medium;
+  background-image: asset-data-url("untitled_design.png");
+  background-size: 100%;
   color: $light-gray;
   border-top: solid;
   box-shadow: 10px 10px 5px rgb(45, 45, 45);
@@ -53,7 +54,7 @@ header {
 
 .typewriter {
   text-align: center;
-  padding: 100px;
+  padding: 40px;
 }
 
 #text {

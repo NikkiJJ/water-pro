@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="script"
 export default class extends Controller {
   connect() {
-    const text = "Discover the water quality near you...";
+    const text = "";
 const textElement = document.getElementById("text");
 
 let index = 0;
