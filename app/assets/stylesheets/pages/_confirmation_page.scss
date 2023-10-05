@@ -1,10 +1,28 @@
 .confirmation-body {
-  height: 100vh;
+  //background-image: url("https://images.unsplash.com/photo-1622478356980-97ecac8eb2a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .confirmation-text {
+  display: flex;
   text-align: center;
+  padding: 50px;
+  margin-top: 50px;
+}
+
+.confirmation-header {
+  margin-top: 50px;
+  text-align: center;
+  padding: 10px;
+}
+
+.confirmation-home {
+  text-align: center;
+  padding: 10px;
 }
