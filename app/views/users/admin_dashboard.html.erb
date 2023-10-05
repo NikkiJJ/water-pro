@@ -7,7 +7,7 @@
 
       <% @reports.each do |report| %>
         <div class="each-report">
-          <div class="site-and-date"> 
+          <div class="site-and-date">
             <%= link_to bathing_site_path(report.bathing_site.id) do %>
             <h6><%= report.bathing_site.site_name.upcase %></h6>
           <% end %>
@@ -24,8 +24,8 @@
           <% end %>
 
           <%= button_to "Dismiss", report, method: :delete, data: { confirm: 'Are you sure?' }, class: "button" %>
-          <% end %>
           </div>
+          <% end %>
     </div>
 
     <div class="reported-reviews-card">
