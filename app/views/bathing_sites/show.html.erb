@@ -4,8 +4,7 @@
       <div class="header-section">
         <h3><%= render 'shared/buttons/back_button' %><%= @bathing_site.site_name.capitalize %></h3>
         <h6><%= @bathing_site.region %> . <%= @reviews.count %> reviews . <%= @reports.count %> reports</h6>
-        <br>
-        <%= @bathing_site.site_info %>
+
       </div>
       <%=image_tag(@bathing_site.web_res_image_url)%>
     </div>
@@ -52,6 +51,11 @@
         <%= render 'shared/air_quality', bathing_site: @bathing_site %>
       </div>
     </div>
+  </div>
+
+  <div class="info">
+    <i class="fa-solid fa-circle-info fa-2xl"></i>
+    <%= @bathing_site.site_info %>
   </div>
 
   <div class="third">
