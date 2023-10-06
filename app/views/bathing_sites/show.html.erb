@@ -1,13 +1,21 @@
 <div class="body">
   <div class="first">
     <div class="top-section">
+    <div class= "show-back-button">
+    <%= render 'shared/buttons/back_button' %>
+    </div>
       <div class="header-section">
-        <h3><%= render 'shared/buttons/back_button' %><%= @bathing_site.site_name.capitalize %></h3>
+        <h3><%= @bathing_site.site_name.capitalize %></h3>
         <h6><%= @bathing_site.region %> . <%= @reviews.count %> reviews . <%= @reports.count %> reports</h6>
 
       </div>
       <%=image_tag(@bathing_site.web_res_image_url)%>
     </div>
+
+    <div class="info">
+    <i class="fa-solid fa-circle-info fa-2xl"></i>
+    <%= @bathing_site.site_info %>
+  </div>
 
     <div class="site-info">
       <div class="fav">
@@ -52,12 +60,6 @@
       </div>
     </div>
   </div>
-
-  <div class="info">
-    <i class="fa-solid fa-circle-info fa-2xl"></i>
-    <%= @bathing_site.site_info %>
-  </div>
-
   <div class="third">
     <div class="bottom-page">
       <div class="review-card">
