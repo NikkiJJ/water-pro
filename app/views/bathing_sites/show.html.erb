@@ -9,19 +9,14 @@
         <h6><%= @bathing_site.region %> . <%= @reviews.count %> reviews . <%= @reports.count %> reports</h6>
 
       </div>
+      <%= social_share_button_tag(@bathing_site, :allow_sites => %w(twitter facebook whatsapp_app)) %>
       <%=image_tag(@bathing_site.web_res_image_url)%>
     </div>
-
-    <div class="info">
-    <i class="fa-solid fa-circle-info fa-2xl"></i>
-    <%= @bathing_site.site_info %>
-  </div>
 
     <div class="site-info">
       <div class="fav">
         <%= render "shared/buttons/get_directions_button" %>
         <%= render "shared/buttons/favourite_button" %>
-        <%= social_share_button_tag(@bathing_site, :allow_sites => %w(twitter facebook whatsapp_app)) %>
       </div>
 
       <div>
@@ -58,6 +53,10 @@
         <i class="fa-solid fa-smog"></i>
         <%= render 'shared/air_quality', bathing_site: @bathing_site %>
       </div>
+  </div>
+  <div class="info">
+    <i class="fa-solid fa-circle-info fa-2xl"></i>
+    <%= @bathing_site.site_info %>
     </div>
   </div>
   <div class="third">

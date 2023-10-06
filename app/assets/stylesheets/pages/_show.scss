@@ -41,8 +41,12 @@ h1 {
 }
 
 .site-info {
-  padding-left: 23%;
-  padding-right: 23%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 23%;
+    padding-right: 23%;
 }
 
 .fa-triangle-exclamation {
