@@ -222,3 +222,10 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
 }
+
+.show-back-button {
+  display: flex;
+  flex-direction: row;
+  align-self: baseline;
+  padding-top: 10px;
+}
