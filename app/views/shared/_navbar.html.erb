@@ -33,12 +33,12 @@
               <% if user_signed_in? %>
                 <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
                 <% if current_user && current_user.admin %>
-                      <%= link_to "My Dashboard", admin_dashboard_user_path(current_user), class: "dropdown-item" %>
+                      <%= link_to "Reports", admin_dashboard_user_path(current_user), class: "dropdown-item" %>
                   <% end %>
                 <% else %>
                   <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
                 <% end %>
+                <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
             </div>
           </li>
           <% if user_signed_in? %>
