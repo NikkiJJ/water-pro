@@ -41,12 +41,14 @@ h1 {
 }
 
 .site-info {
-
     display: flex;
     flex-direction: column;
     align-items: stretch;
     padding-left: 23%;
     padding-right: 23%;
+      img {
+        width: 100%;
+      }
 }
 
 .fa-triangle-exclamation {
@@ -131,18 +133,18 @@ h1 {
 .info {
   background-color: white;
   margin: 15px 15px 15px 15px;
-  padding: 15px 15px 15px 15px;
+  padding: 5px 5px 5px 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-  padding-left: 8%;
-  padding-right: 8%;
+  align-items: center; /* Vertically center the contents */
+  margin-right: 10px; /* Add some space between the icon and the text */
 }
 
 .fa-circle-info {
-  padding-top: 25px;
-  padding-right: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
   color: $primary-accent;
 }
 
