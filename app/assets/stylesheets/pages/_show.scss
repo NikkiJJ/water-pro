@@ -244,3 +244,53 @@ h1 {
   align-self: baseline;
   padding-top: 10px;
 }
+
+@media (max-width: 768px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .site-info {
+    padding-left: 2px; /* Reduce padding for smaller screens */
+    padding-right: 2px; /* Reduce padding for smaller screens */
+    font-size: smaller;
+  }
+
+  .bottom-page {
+     display: flex;
+     flex-direction: column;
+   }
+
+  .review-card {
+    width: 100%; /* Make the review card full width on smaller screens */
+    padding-left: 2%; /* Adjust padding for smaller screens */
+  }
+
+  .each-review {
+    margin: 5px 5px 2px 5px;
+    border-radius: 10px;
+    padding: 7px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .form-container {
+    width: 100%; /* Make the form container full width on smaller screens */
+    margin-bottom: 5px; /* Adjust margin for smaller screens */
+    border-image-slice: 0;
+    border-image-source: linear-gradient(to left, white, white);
+  }
+
+  .form-inner-container {
+    width: 100%; /* Make the form inner container full width on smaller screens */
+    padding: 10px;
+  }
+
+  /* Hide certain elements on smaller screens if necessary */
+}
