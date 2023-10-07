@@ -2,8 +2,8 @@
 
   <div class="container-fluid">
     <%= link_to "/#", class: "navbar-brand" do %>
-      <img src="<%= asset_path('waterpro-low-resolution-logo-color-on-transparent-background.jpg') %>" alt="Waterpro Logo">
-      WATERPRO
+      <img src="<%= asset_path('download.png') %>" alt="Waterpro Logo">
+
     <% end %>
   <div class="search-bar">
     <% unless current_page?(root_path) %>
@@ -19,6 +19,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <div class="d-flex align-items-center">
+            <% if user_signed_in? %>
+            <li>
+              <h6>Hello <%= current_user.nickname.capitalize %>!</h6>
+            </li>
+        </div>
+        <% end %>
           <li class="nav-item dropdown">
               <% if current_user && current_user.photo.attached?%>
                   <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,7 +32,7 @@
                   </a>
                   <% else %>
                   <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa-regular fa-user" style="color: dark-blue;"></i>
+                  <i class="fa-solid fa-bars fa-2xl" style="color: dark-blue;"></i>
                   </a>
                   <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -41,12 +47,6 @@
                 <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
             </div>
           </li>
-          <% if user_signed_in? %>
-            <li>
-              <h6>Hello <%= current_user.nickname.capitalize %>!</h6>
-            </li>
-        </div>
-        <% end %>
       </ul>
     </div>
   </div>
