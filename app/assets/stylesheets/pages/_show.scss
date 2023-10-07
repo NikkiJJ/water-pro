@@ -132,7 +132,7 @@ h1 {
 
 .info {
   background-color: white;
-  margin: 15px 15px 15px 15px;
+  margin: 15px 0px 15px 0px;
   padding: 5px 5px 5px 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
@@ -155,7 +155,7 @@ h1 {
 .review-card {
   width: 50%;
   margin-bottom: 10px;
-  padding-left: 5%;
+  padding-left: 7%;
     h4 {
       padding: 40px 20px 20px 0;
       border-bottom: solid;
@@ -170,7 +170,7 @@ h1 {
   border-left-style: solid;
   background-color: white;
   border-image-slice: 1;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   border-image-source: linear-gradient(to left, $primary-accent, $accent-medium);
 }
 
@@ -232,6 +232,10 @@ h1 {
   padding: 15px 15px 15px 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+    h6 {
+      color: $primary-accent;
+      font-weight: bold;
+    }
 }
 
 .show-back-button {
