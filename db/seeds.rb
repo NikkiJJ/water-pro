@@ -75,6 +75,16 @@ end
   )
   p "Created #{site_name}, #{county_name} bathing site!"
 end
+sites_to_update = BathingSite.where("site_name ILIKE ? OR site_name ILIKE ?", "%Brighton%", "%Hove%")
+
+coordinates = [50.8229, -0.1363]
+
+sites_to_update.each do |site|
+  site.latitude = coordinates[0]
+  site.longitude = coordinates[1]
+  site.save
+  puts "Updated coordinates for #{site.site_name}"
+end
 
 base_url = 'https://admiraltyapi.azure-api.net/uktidalapi/api/V1/Stations'
 tapi_key = ENV['TIDE_API']
