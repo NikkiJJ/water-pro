@@ -10,24 +10,53 @@
       margin-top: 15px;
       padding-left: 15px;
     }
+    h6 {
+      font-weight: bold !important;
+      color: $primary-accent;
+    }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  font-weight: bold;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 35px;
+  width: 65px;
   height: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.navbar-lewagon .nav-item.dropdown i.fa-regular.fa-user {
+.navbar-lewagon .nav-item.dropdown i.fa-solid.fa-bars {
   font-size: 24px;
-  color: $dark-blue;
+  color: $primary-accent;
   padding-right: 50px;
   padding-top: 7px;
   align-items: center;
   padding-bottom: 10px;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 10px 20px;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.dropdown-menu .dropdown-header {
+  font-weight: bold;
+  color: #555;
 }
 
 .fa-droplet {

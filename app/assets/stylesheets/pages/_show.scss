@@ -41,12 +41,14 @@ h1 {
 }
 
 .site-info {
-
     display: flex;
     flex-direction: column;
     align-items: stretch;
     padding-left: 23%;
     padding-right: 23%;
+      img {
+        width: 100%;
+      }
 }
 
 .fa-triangle-exclamation {
@@ -130,19 +132,19 @@ h1 {
 
 .info {
   background-color: white;
-  margin: 15px 15px 15px 15px;
-  padding: 15px 15px 15px 15px;
+  margin: 15px 0px 15px 0px;
+  padding: 5px 5px 5px 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-  padding-left: 8%;
-  padding-right: 8%;
+  align-items: center; /* Vertically center the contents */
+  margin-right: 10px; /* Add some space between the icon and the text */
 }
 
 .fa-circle-info {
-  padding-top: 25px;
-  padding-right: 20px;
+  padding-right: 5px;
+  padding-left: 5px;
   color: $primary-accent;
 }
 
@@ -153,7 +155,7 @@ h1 {
 .review-card {
   width: 50%;
   margin-bottom: 10px;
-  padding-left: 5%;
+  padding-left: 7%;
     h4 {
       padding: 40px 20px 20px 0;
       border-bottom: solid;
@@ -168,7 +170,7 @@ h1 {
   border-left-style: solid;
   background-color: white;
   border-image-slice: 1;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   border-image-source: linear-gradient(to left, $primary-accent, $accent-medium);
 }
 
@@ -230,6 +232,10 @@ h1 {
   padding: 15px 15px 15px 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+    h6 {
+      color: $primary-accent;
+      font-weight: bold;
+    }
 }
 
 .show-back-button {
@@ -237,4 +243,54 @@ h1 {
   flex-direction: row;
   align-self: baseline;
   padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .site-info {
+    padding-left: 2px; /* Reduce padding for smaller screens */
+    padding-right: 2px; /* Reduce padding for smaller screens */
+    font-size: smaller;
+  }
+
+  .bottom-page {
+     display: flex;
+     flex-direction: column;
+   }
+
+  .review-card {
+    width: 100%; /* Make the review card full width on smaller screens */
+    padding-left: 2%; /* Adjust padding for smaller screens */
+  }
+
+  .each-review {
+    margin: 5px 5px 2px 5px;
+    border-radius: 10px;
+    padding: 7px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .form-container {
+    width: 100%; /* Make the form container full width on smaller screens */
+    margin-bottom: 5px; /* Adjust margin for smaller screens */
+    border-image-slice: 0;
+    border-image-source: linear-gradient(to left, white, white);
+  }
+
+  .form-inner-container {
+    width: 100%; /* Make the form inner container full width on smaller screens */
+    padding: 10px;
+  }
+
+  /* Hide certain elements on smaller screens if necessary */
 }
