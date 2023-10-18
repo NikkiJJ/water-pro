@@ -88,3 +88,47 @@ nav {
   text-decoration: none;
   color: black;
 }
+
+
+
+/* Media query for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+  .navbar-lewagon {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-lewagon h4 {
+    margin-top: 10px;
+    padding-left: 0;
+  }
+
+  .navbar-lewagon .nav-item.dropdown i.fa-solid.fa-bars {
+    padding-right: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Media query for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+  /* Hide the avatar by default on mobile */
+  .navbar-lewagon .nav-item.dropdown i.fa-solid.fa-bars {
+    display: inline; /* Show the "bars" icon */
+  }
+
+  /* Hide the "Hello User" text on mobile when user is logged in */
+  .navbar-lewagon .d-flex.align-items-center h6 {
+    display: none; /* Hide the "Hello User" text */
+  }
+}
